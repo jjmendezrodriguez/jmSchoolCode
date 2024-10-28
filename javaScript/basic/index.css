@@ -1,0 +1,67 @@
+body {
+  background-image: url("yarn.jpeg");
+  background-size: cover;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  text-align: center;
+  height: 100vh;
+  touch-action: manipulation;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background: rgb(235, 235, 235);
+  max-width: 50%;
+  margin: auto;
+  border: 3px solid rgba(0, 0, 0, 0.651);
+  border-radius: 10px;
+  align-items: center;
+}
+
+h1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 50px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+button {
+  border: 1px solid black;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  color: white;
+  font-weight: bold;
+  width: 75%;
+  max-width: 300px;
+  margin-bottom: 50px;
+  border-radius: 5px;
+}
+
+#increment-btn {
+  background: #288d30;
+}
+
+#save-btn {
+  background: #241c97;
+}
+
+#reset-btn {
+  background: #fd0000;
+}
+
+#save-el {
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 90%;
+  }
+  button {
+    width: 100%;
+  }
+}
