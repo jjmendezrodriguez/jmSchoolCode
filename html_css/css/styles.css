@@ -1,0 +1,29 @@
+body {
+  background: greenyellow; /* blue, yellow, etc */
+  color: red; /* red, blue, yellow, etc */
+  font-size: 25px; /* 0px - 100px and beyond px = pixels*/
+  font-weight: normal; /* lighter, normal, bold  */
+  text-align: center; /* left, center or right  */
+  margin-top: 50px; /* From 0px and upwards   */
+}
+
+input {
+  width: 200px; /* 0px - 100px and beyond px = pixels*/
+  height: 30px; /* 0px - 100px and beyond px = pixels*/
+  font-size: 20px; /* 0px - 100px and beyond px = pixels*/
+  margin-top: 20px; /* From 0px and upwards   */
+}
+
+/* Para expesificar una class use . before call the call. = .main */
+.main {
+  margin-top: 50px; /* From 0px and upwards   */
+}
+
+.main-msg {
+  font-size: 30px; /* 0px - 100px and beyond px = pixels*/
+  font-weight: bold; /* lighter, normal, bold  */
+  color: blue; /* red, blue, yellow, etc */
+  padding: 40px; /* From 0px and upwards   */
+  background: white; /* el espacio blanco es padding */
+  margin: 50px;
+}

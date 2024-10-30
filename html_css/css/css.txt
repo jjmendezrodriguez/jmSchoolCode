@@ -1,0 +1,71 @@
+How css work
+
+Css Syntax & info.
+
+Css trabaja seleccionando elementos de la pagina en este caso los tag de HTML
+ejemplo: <h1></h1> or <body></body>.
+
+cuando los seleccionas e lo que llamas para editar.
+ejemplo:
+
+body {
+    color: red;
+ property: value;
+}
+
+Esta syntax significa = el color de texto dentro de body sea rojo.
+Esta es la Syntax de css.
+
+Inline & block elements:
+
+display: inline; = para alinear en horizontal (una linea)
+
+display: block; = para alinear en vertical, columna arriba asi abajo.
+
+Margins / margenes:
+
+margin: value;
+
+El browser agraga 8px automaticos de a la redonda.
+
+margin-top: 50px; = From 0px and upwards. asignas una separacion de arriba.
+
+margin: 0; = Elimina los margenes. A la redonda
+
+Cuando usas margin-top y margin-bottom se puede canselar una con el otro si coinsiden
+y el mayor predominara, Esto aplica si donte termina bottom comiensa top.
+
+Centering elements/ centralizamos elementos:
+
+centralizados con margin en 3 partes:
+1. display: block; para todo controlar todo el espacio horizontal
+2. width asignamos un ancho
+3. margin-left: auto;
+   margin-right: auto; asi se divide el espacio en blanco entre los 2.
+
+Padding espacio interior del elemento:
+
+padding: value;
+
+Como decir un espacio interior.
+Usar Padding es ala redonda, si quieres un lado espesifico lo espesificas ejemplo: Padding-top.
+
+Border:
+
+border: 4px solid yellow;
+      value style color
+
+Hay distintos type como en puntos, el comun es solid.
+Se puede crear un efecto round usando = border-radius: value;
+
+The box model se conose como el manejo de:
+-Margins
+-Border
+-Padding
+-Content y/o elements1px
+
+Content:
+
+line-height: value;
+
+Se usa para la altura del texto en los inputs.
