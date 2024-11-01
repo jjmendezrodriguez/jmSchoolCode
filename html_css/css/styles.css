@@ -14,7 +14,7 @@ input {
   margin-top: 20px; /* From 0px and upwards   */
 }
 
-/* Para expesificar una class use . before call the call. = .main */
+/* Para expesificar una class use . before call the class. = .main */
 .main {
   margin-top: 50px; /* From 0px and upwards   */
 }

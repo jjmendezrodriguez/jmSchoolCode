@@ -1,32 +1,33 @@
-How css work
+* How css work
 
 Css Syntax & info.
 
 Css trabaja seleccionando elementos de la pagina en este caso los tag de HTML
-ejemplo: <h1></h1> or <body></body>.
+ejemplo: <h1></h1>, <body></body> ect...
 
-cuando los seleccionas e lo que llamas para editar.
+Seleccionas el tag y lo llamas para editar y costumisar tus elementos.
 ejemplo:
 
 body {
-    color: red;
- property: value;
+   color: red;
+   property: value;
 }
 
+^ Esta es la Syntax de css.
 Esta syntax significa = el color de texto dentro de body sea rojo.
-Esta es la Syntax de css.
 
-Inline & block elements:
+
+* Inline & block elements:
 
 display: inline; = para alinear en horizontal (una linea)
 
 display: block; = para alinear en vertical, columna arriba asi abajo.
 
-Margins / margenes:
+* Margins / margenes:
 
 margin: value;
 
-El browser agraga 8px automaticos de a la redonda.
+El browser (la web) agraga 8px automaticos de a la redonda.
 
 margin-top: 50px; = From 0px and upwards. asignas una separacion de arriba.
 
@@ -35,37 +36,86 @@ margin: 0; = Elimina los margenes. A la redonda
 Cuando usas margin-top y margin-bottom se puede canselar una con el otro si coinsiden
 y el mayor predominara, Esto aplica si donte termina bottom comiensa top.
 
-Centering elements/ centralizamos elementos:
+* Centering elements / centralizamos elementos:
 
 centralizados con margin en 3 partes:
-1. display: block; para todo controlar todo el espacio horizontal
-2. width asignamos un ancho
-3. margin-left: auto;
-   margin-right: auto; asi se divide el espacio en blanco entre los 2.
+   1. display: block; para todo controlar todo el espacio horizontal
+   2. width asignamos un ancho
+   3. margin-left: auto;
+      margin-right: auto; Asi se divide el espacio en blanco entre los 2.
+   
+   Esto funcona solo con elementos simples (uno) para multiples usa Flex.
 
-Padding espacio interior del elemento:
+* Padding espacio interior del elemento:
 
 padding: value;
 
 Como decir un espacio interior.
-Usar Padding es ala redonda, si quieres un lado espesifico lo espesificas ejemplo: Padding-top.
+Usar Padding es ala redonda, si quieres un lado espesifico lo espesificas ejemplo: padding-top, padding-left.
 
-Border:
+* Border:
 
 border: 4px solid yellow;
       value style color
 
-Hay distintos type como en puntos, el comun es solid.
-Se puede crear un efecto round usando = border-radius: value;
+-Hay distintos type como en dots (puntos), el comun es solid.
+-Se puede crear un efecto round usando = border-radius: value;
 
-The box model se conose como el manejo de:
--Margins
--Border
--Padding
--Content y/o elements1px
+* The box model se conose como el manejo de:
+   -Margins
+   -Border
+   -Padding
+   -Content y/o elements1px
 
-Content:
+* Content:
 
 line-height: value;
 
 Se usa para la altura del texto en los inputs.
+
+* Bottom / botones o btn:
+
+Los botones se crean con un width standar no hace falta asignar uno.
+
+none = nada / para eliminar cosas.
+
+* Text aline:
+
+text-align: center;
+
+Es inflexible y simples pero es mas facil su uso, trabaja con todos los elementos alineados
+no solo texto. Es mejor aplicarlo al grupo.
+
+* Flexbox:
+
+display: flex; 
+
+Creas como un contenedor = crear grupos:
+
+HTML:
+   <div class="nav-wrapper">
+            <div class="item">▽ Shoes</div>
+            <div class="item">▽ Hoodies</div>
+            <div class="item">▽ T Shirts</div>
+        </div>
+
+CSS:
+ (para set el div tag)
+   .nav-wrapper {
+      display: flex;
+      justify-content: space-around; (usas para separar en espacios iguales, hay mas opciones.)
+   }
+
+ (para set up los botones)
+   .item {
+      text-align: center;
+      border: 1px solid black;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+
+   }
+
+con este setup le das la propiedad al <div></div> y los items los trabaja por separado.
