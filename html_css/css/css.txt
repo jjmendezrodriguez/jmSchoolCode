@@ -118,4 +118,18 @@ CSS:
 
    }
 
-con este setup le das la propiedad al <div></div> y los items los trabaja por separado.
+Con este setup le das la propiedad al <div></div> y los items los trabaja por separado.
+
+* Class:
+
+   class="name"
+
+SI el tag es el mismo puedes separar tus elementos usando class para editar expesificamente
+ese tag. Que le declarastes la class.
+elemplo:
+   <div class="btn-wrapper">
+                <button class="btn">Google Search</button>
+                <button class="btn">I'm Feeling Lucky</button>
+            </div>
+   Todo lo que este en el css de .btn-wrapper va a editar solo ese elemento '<div class="btn-wrapper">'
+   que esta dentro de los tags.
