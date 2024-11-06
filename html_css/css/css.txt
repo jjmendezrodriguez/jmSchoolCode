@@ -133,3 +133,11 @@ elemplo:
             </div>
    Todo lo que este en el css de .btn-wrapper va a editar solo ese elemento '<div class="btn-wrapper">'
    que esta dentro de los tags.
+
+* Inspect
+
+   Lo usas en la web para ver los atributos de tus files asi puedes editar mejor y manejar
+   las medidas cuando quieres que sean uniformes.
+
+   Viendo elements en control dev tools
+   y styles.

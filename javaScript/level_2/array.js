@@ -16,8 +16,12 @@ console.log(fruts.length); // cantidad de valores en este caso 3
 // Puedes guardar cualquier dataType
 let me = ["Jose", 37, true];
 
-let cards = [5, 8];
+let cards = [5, 8.5, 9, 10];
 cards.push(3); // Agrega valores al array con .push("addItem") al final.
 console.log(cards);
 cards.pop(); // Para remover valores, remueve el ultimo
+console.log(cards);
+
+cards.shift(); // Remueve el primer valor
+cards.unshift("Teish"); // Agrega un valor al principio del array
 console.log(cards);

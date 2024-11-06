@@ -24,7 +24,7 @@ let lap2 = 33;
 let lap3 = 36;
 
 function logLapTime() {
-  // esta variable es local solo se lee dentro de la funcion.
+  // esta variable es local solo se lee dentro de la funcion solamente.
   let totalTime = lap1 + lap2 + lap3;
   // que esta llamando variable globales: lap1 + lap2 + lap3;
   console.log(totalTime);

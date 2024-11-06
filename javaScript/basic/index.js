@@ -1,5 +1,4 @@
 // document.getElementById("count-el").innerText = 5;
-// dec = declaras
 // Utilisamos document para buscar un elemento en el DOM (Document Object Model)
 let countEl = document.getElementById("count-el");
 /* El .getElementById es buscar el elemento por su id ("id")
@@ -16,16 +15,16 @@ function increment() {
 aqui llamas la variable y su nuevo valor imprime y le suma 1. */
 
   // count = count + 1
-  // count += 1 otro metodo para subir o contar
+  // count += 1 mantiene el valor y le incrementa 1, si dice 2 pues 2.
   // metodo mas practico ver file practica1.js para explicacion.
   count++;
   /* como funciona
  variable.lee o modifica el texto que es. Ver DOM.js para otras opciones */
   countEl.innerText = count;
   // En este caso la variable count incrementa
-  console.log(count); /* luego imprime count, el uso de console.log
+  console.log(count); /* luego imprime count, using console.log
   es para verificar and debuger por posibles errores, 
-  esto confirma the function do his job. (not need it) */
+  esto confirma the function is doinf his job. (not need it) */
 }
 // Grab the save-el paragrah and store it in a variable called saveEl
 let saveEl = document.getElementById("save-el");

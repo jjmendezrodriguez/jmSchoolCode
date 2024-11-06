@@ -14,3 +14,21 @@ for (let i = 0; i < sentence.length; i++) {
 
 /* usando += en 'greetingEl.textContent += sentence[i]' para concatenar y mantener
 el valor o contenido anterior. si solo usamos = se reemplaza el valor anterior. */
+
+let largeCountries = ["China", "India", "USA", "Indonesia", "Pakistan"];
+
+// Use a for loop to log the following to the console:
+
+console.log("The 5 largest countries in the world:");
+for (let i = 0; i < largeCountries.length; i++) {
+  console.log("- " + largeCountries[i]);
+}
+
+/*
+The 5 largest countries in the world:
+- China
+- India
+- United States
+- Indinesia
+- Pakistan
+*/

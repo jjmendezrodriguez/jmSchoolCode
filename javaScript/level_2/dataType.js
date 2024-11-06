@@ -10,4 +10,5 @@ let secondCard = 8;
 . en value te refieres a class
 
 
+
 */

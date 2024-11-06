@@ -4,7 +4,7 @@ let float = 1.5; // en javaScript no necesitas identificar los float.
 let boolean = "true or false not need to be in capital letter";
 
 // .js no lee numeros fraccionales 1/4 pero puedes usarlos
-// In .js para dejar espacio es con mayuscula no _
+// In .js para dejar espacio es con mayuscula no _ se llama cammelCase
 
 /* Simbolos y sus Nombres
 

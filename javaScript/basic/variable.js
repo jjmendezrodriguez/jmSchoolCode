@@ -7,7 +7,7 @@ let count = 5;
 /* In .js para dejar espacio es con mayuscula no _ de llama:
 camelcase = maxNumber is like dejar espacio entre textos */
 maxNumber = "numero maximo";
-// es como dejar un espacio 'max number' (en .js no puedes usar _, -)
+// es como dejar un espacio 'max number' (en .js no usar _, -)
 
 let age = 1; // let count igual a 1
 // usar 'let' declara una variable que puedes puede cambiar el valor
