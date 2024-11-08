@@ -1,4 +1,7 @@
-// variables
+/* variables
+Las variables son utilizadas para almacenar datos, como numeros, 
+texto, objetos, arrays, etc.,tambien puedes guardar otras variables
+ y compararlas entre si. */
 // son sensibles a simbolos y letras mayusculas.
 // v = variable
 let count = 5;

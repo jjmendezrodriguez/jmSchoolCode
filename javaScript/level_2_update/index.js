@@ -1,5 +1,6 @@
 let cards = []; // creamos un array
 let sum = 0;
+let sumBet = 0;
 let hasBlasckJack = false;
 let isAlive = false; // Para que el juego inicie debe ser true. ver funcion startGame().
 let response = ""; // Con variables empty podemos usarlas en cualquier parte del codigo.
@@ -14,6 +15,7 @@ let player = {
 let messageEl = document.getElementById("message-el");
 let sumEL = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
+let betEl = document.getElementById("bet-el");
 let playerEl = document.getElementById("player-el");
 playerEl.textContent = player.name + "" + player.chips;
 
@@ -37,7 +39,6 @@ function startGame() {
       alert("Please enter your name!");
       player.name = prompt("What's your name?");
     }
-    addChips();
     console.log("voy por aqui");
     if (player.chips < 10) {
       while (player.chips < 10) {
@@ -47,8 +48,7 @@ function startGame() {
       }
     }
   }
-
-  if (sum > 10) {
+  if (cards > 0) {
     startOver();
   } else {
     let firsCard = getRamdomCard();
@@ -58,44 +58,54 @@ function startGame() {
   de esta forma podemos saber que cartas se han sacado al inicio del juego. */
     sum = firsCard + secondCard;
     renderGame();
+    console.log("comienza el juego");
     // Con esta funcion iniciamos el juego con dos cartas y el valor ramdom de cada carta.
   }
 }
 
 function addChips() {
+  console.log("addChips");
   if (player.chips < 10) {
-    console.log("if addchips leyo");
-    alert("You need at least $10 to play!");
-    player.chips = prompt("How many chips do you want to add?");
-    playerEl.textContent = player.name.toUpperCase() + ": $" + player.chips;
+    while (player.chips < 10) {
+      alert("You need at least $10 to play!");
+      player.chips = prompt("How many chips do you want to add?");
+      playerEl.textContent = player.name.toUpperCase() + ": $" + player.chips;
+    }
   }
 }
 
 function stay() {}
 
 function bet() {
+  console.log("click bet");
   if (isAlive === false) {
     alert("You need to start a new game!");
-  } else if (player.chips >= 10) {
+  }
+  if (player.chips >= 10) {
+    // rev. to move to startGame()
     alert("you bet $10");
     player.chips -= 10;
     playerEl.textContent = player.name.toUpperCase() + ": $" + player.chips;
     startGame();
-  } else {
+  }
+  if (cards > 1 && player.chips < 10) {
+    //fix
     addChips();
   }
 }
 
 function newGame() {
-  if (!isAlive || sum === 0) {
+  if (isAlive === false) {
     alert("You need to start a new game!");
+  } else {
+    startOver();
+    cards = [];
+    sum = 0;
+    hasBlasckJack = false;
+    isAlive = false;
+    message = "";
+    renderGame();
   }
-  cards = [];
-  sum = 0;
-  hasBlasckJack = false;
-  isAlive = false;
-  message = "";
-  renderGame();
 }
 
 function renderGame() {
@@ -104,23 +114,33 @@ function renderGame() {
     cardsEl.textContent += cards[i] + " ";
   }
   sumEL.textContent = "Sum: " + sum;
+
+  sumBet += 10;
+  player.chips -= 10;
+  sumBet += 10;
+  playerEl.textContent = player.name.toUpperCase() + ": $" + player.chips;
+  betEl.textContent = "Bet: " + sumBet;
+
   if (sum <= 20) {
     message = "Do you want to draw a new card?";
     isAlive = true;
   } else if (sum === 21) {
     message = "Wohoo! You've got Blackjack!";
     hasBlasckJack = true;
+    player.chips += sumBet;
+    sumBet = 0;
+    playerEl.textContent = player.name.toUpperCase() + ": $" + player.chips;
+    betEl.textContent = "Bet: " + sumBet;
   } else {
     message = "You're out of the game!";
     isAlive = false;
   }
-
   //Con esto cambias el texto del HTML, la linea donde coinside el id usado.
   messageEl.textContent = message;
 }
 
 function newCard() {
-  if (!isAlive || sum === 0) {
+  if (!isAlive || sum > 10) {
     alert("You need to start a new game!");
   } else if (isAlive && hasBlasckJack === false) {
     // si isAlive es true y hasBlasckJack es false
@@ -135,7 +155,7 @@ function newCard() {
 
 function startOver() {
   if (!isAlive || sum === 0) {
-    alert("You need to start a new game!");
+    alert("1 You need to start a new game!");
   } else if (isAlive) {
     response = prompt("Are you sure you want to start over? yes or no");
     /* ^ guardamos el valor de prompt en una variable, para poder 

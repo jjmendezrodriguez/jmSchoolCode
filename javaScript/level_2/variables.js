@@ -1,7 +1,8 @@
-/* las variables pueden tener distintos valores en .js por eso usamos let cuando las declaramos
-    para luego poder cambiar su valor.
-    ejemplo de declara una variable para luego tenga multibles valores solo la dejamos en blanco
-    en su valor asignando un empty str */
+/* las variables pueden tener distintos valores en .js por eso usamos let 
+cuando las declaramos con 'let' luego poder cambiar su valor. En este caso
+la declaramos vacia para luego asignarle un valor dependiendo lo que necesitemos
+    Ejemplo declara una variable para que luego tenga multibles valores solo
+    la dejamos en blanco en su valor asignando un empty str = "" */
 
 let message = "";
 let age = 9;

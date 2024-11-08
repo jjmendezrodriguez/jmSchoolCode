@@ -18,3 +18,11 @@ if (likesDocumentaries === true || likesStartups === false) {
 function recommendMovie() {
   console.log("Hey, check out this new film we think you will like!");
 }
+
+/* Tambien podemos evaluar 2 variables booleanas sin compararlas con true o false */
+
+let object1 = true;
+let object2 = false;
+console.log(object1 && object2); // si una variables es verdaderas, el resultado sera verdadero.
+/* Puedes guardar el resultado en una variable , tambien podemos evaluar
+mas de 2 variables booleanas. */
