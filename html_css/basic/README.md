@@ -7,8 +7,8 @@ This course is divided into two folders: one for HTML and another for CSS. Below
 - [Basic HTML \& CSS Course](#basic-html--css-course)
   - [Table of Contents](#table-of-contents)
   - [HTML Folder](#html-folder)
-    - [list.html](#listhtml)
     - [basic.html](#basichtml)
+    - [list.html](#listhtml)
     - [personal-site.html](#personal-sitehtml)
     - [structure.html](#structurehtml)
     - [index.html](#indexhtml)
@@ -18,13 +18,6 @@ This course is divided into two folders: one for HTML and another for CSS. Below
   - [How to Use These Files](#how-to-use-these-files)
 
 ## HTML Folder
-
-### [list.html](list.html)
-
-This file demonstrates how to use list tags in HTML.
-
-- `<ol>`: Ordered list (uses numbers).
-- `<ul>`: Unordered list (uses dots).
 
 ### [basic.html](basic.html)
 
@@ -37,6 +30,13 @@ This file contains basic examples of HTML tags.
 - `<p>`: Paragraph.
 - `<img>`: Images.
 - `<div>`: Division container.
+
+### [list.html](list.html)
+
+This file demonstrates how to use list tags in HTML.
+
+- `<ol>`: Ordered list (uses numbers).
+- `<ul>`: Unordered list (uses dots).
 
 ### [personal-site.html](personal-site.html)
 
