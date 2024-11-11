@@ -2,10 +2,10 @@
 
 This course is divided into two folders: one for HTML and another for CSS. Below is a description of the files included in each folder and their content.
 
-## Table of Contents
+## Table of Content
 
 - [Basic HTML \& CSS Course](#basic-html--css-course)
-  - [Table of Contents](#table-of-contents)
+  - [Table of Content:](#table-of-content)
   - [HTML Folder](#html-folder)
     - [basic.html](#basichtml)
     - [list.html](#listhtml)
