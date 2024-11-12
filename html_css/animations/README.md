@@ -87,6 +87,25 @@ This example demonstrates a basic animation applied to a box element. The box gr
         animation-name: grow;
         animation-duration: 2s;
         animation-timing-function: ease;
+        animation-iteration-count: infinite;
+        }
+
+        @keyframes grow {
+        0% {
+        width: 100px;
+        height: 100px;
+        background: red;
+        }
+        50% {
+        width: 150px;
+        height: 150px;
+        background: green;
+        }
+        100% {
+        width: 100px;
+        height: 100px;
+        background: blue;
+        }
         }
 
 ## How to Use

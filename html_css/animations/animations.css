@@ -57,7 +57,7 @@
   animation-timing-function: ease; /* linear is the default value, you can use ease,
   ease-in, ease-out, ease-in-out, cubic-bezier() */
   animation-delay: 0s;
-  animation-iteration-count: 3; /* how many times the animation will run, infinite is a value */
+  animation-iteration-count: infinite; /* how many times the animation will run, infinite is a value */
   animation-direction: alternate; /* alternate, normal, reverse, alternate-reverse */
   animation-fill-mode: forwards; /* forwards, backwards, both, none */
 }
