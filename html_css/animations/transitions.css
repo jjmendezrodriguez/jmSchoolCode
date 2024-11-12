@@ -1,0 +1,172 @@
+.exercise-1 {
+  color: darkblue;
+  font-size: 15px;
+  transition: color 1s, font-sizes 2s; /* transition property make the change smooth */
+  /* How work ^ First value is the 'property' to change, second value is the duration of the transition.
+    You can add more properties to change diveded by a comma the values you want.
+    For all the properties at the same time use all then the duration 'all 0.5s' */
+}
+
+/* Make the heading bigger and change color when hover */
+.exercise-1:hover {
+  color: brown;
+  font-size: 25px;
+  letter-spacing: 10px; /* add space between letters */
+  word-spacing: 10px; /* add space between words */
+}
+
+.exercise-2 {
+  color: red;
+  font-size: 15px;
+  transition-property: font-size; /* is you seaparate the properties but need to add property duration */
+  transition-duration: 1s;
+  transition-delay: 1s; /* delay the transition */
+  transition-timing-function: ease; /* linear is the default value, you can use ease,
+    ease-in, ease-out, ease-in-out, cubic-bezier() */
+}
+
+/* Can combine all trasition in 1 use only transition: font-size .5s ease-in 1s
+ syntax = 'transition: property duration timing delay' use coma to separate properties */
+
+.exercise-2:hover {
+  color: green;
+  font-size: 25px;
+}
+
+.exercise-3 {
+  color: blue;
+  font-size: 15px;
+  transition: all 1s ease-in-out 1s; /* all properties at the same time */
+}
+
+.exercise-3:hover {
+  color: yellow;
+  font-size: 25px;
+}
+
+/* Animation */
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: red;
+  border: 2px solid black;
+  /* Order of the properties if you use '1 line code' */
+  animation-name: grow; /* name given to the animation used in the keyframes */
+  animation-duration: 2s;
+  animation-timing-function: ease; /* linear is the default value, you can use ease,
+  ease-in, ease-out, ease-in-out, cubic-bezier() */
+  animation-delay: 0s;
+  animation-iteration-count: 3; /* how many times the animation will run, infinite is a value */
+  animation-direction: alternate; /* alternate, normal, reverse, alternate-reverse */
+  animation-fill-mode: forwards; /* forwards, backwards, both, none */
+}
+
+/* Definitions:
+Timing functions:
+ease = slow start and end, fast in the middle, suavisado.
+linear = same speed from start to end, 
+ease-in = slow start, fast end, suavisado al inicio y rapido al final.
+ease-out = fast start, slow end, rapido al inicio y suavisado al final.
+ease-in-out = slow start and end, fast in the middle, suavisado al inicio y al final.
+cubic-bezier() = custom values
+Direction:
+normal = default value, start to end
+reverse = end to start
+alternate = start to end and then end to start
+alternate-reverse = end to start and then start to end
+Fill mode:
+forwards = keep the last value of the animation
+backwards = keep the first value of the animation
+both = keep the first and last value of the animation
+none = default value, no value is kept */
+
+/* for cubic-bezier() use the values in the function cubic-bezier(0.1, 0.7, 1.0, 0.1)
+see https://cubic-bezier.com/ for visual representation of the values */
+
+/* We can combine all the properties in '1 line code' the syntax is:
+animation: name duration timing delay iteration-count direction fill-mode */
+
+/* The keyframes define the animation duration and the properties to change 
+    from the start to the end of the animation. This is a way to create animations */
+/* @keyframes grow {
+  from {
+    width: 100px;
+    height: 100px;
+    background: red;
+  }
+  to {
+    width: 100px;
+    height: 150px;
+    background: green;
+  }
+} */
+
+/* We can use percentages to define the animation */
+@keyframes grow {
+  0% {
+    width: 100px;
+    height: 100px;
+    background: red;
+  }
+  50% {
+    width: 150px;
+    height: 150px;
+    background: green;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    background: blue;
+  }
+}
+
+/* Transformations */
+/* shrink = encoger */
+
+.box2 {
+  top: 50%; /* element position on the top of screen */
+  left: 50%; /* element position on the left of screen */
+  transform: translate(-50%, -50%); /* move the element to the center */
+  position: fixed; /* position fixed to keep the element in the center */
+  width: 50px;
+  height: 50px;
+  background: red;
+  border: 1px solid black;
+  animation-name: transform;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes transform {
+  100% {
+    transform: scale(2, 6); /* scale(x, y) resize the element */
+  }
+}
+/* transform properties:
+translate() = move the element, x value first and y value second
+rotate('value'deg) = rotate the element, value in degrees
+scale() = resize the element, x value first and y value second.
+skew('value'deg) = deform the element, x value first and y value second can use one only.
+matrix() = custom transformation, 6 values same as the matrix in math */
+
+/* Browser prefixes and compatibility
+-webkit- = Chrome and Safari, use '-webkit-animation: 'atrivutes''
+-moz- = Firefox
+-o- = Opera
+-ms- = Internet Explorer
+
+Used in the keyframes and animations properties */
+
+/* Variables / Custom properties */
+
+:root {
+  /* define the variables in the root of the document */
+  --main-color: red; /* use '--' to define a variable */
+  --second-color: blue;
+}
+
+/* Use the variable in the css for the elements have the same value 
+call the variable with 'var(--variable-name)' in the property value
+for example: color: var(--main-color); This will use the value of the
+variable defined in the root of the document */
