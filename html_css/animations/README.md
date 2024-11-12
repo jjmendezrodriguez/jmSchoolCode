@@ -4,15 +4,17 @@ This project demonstrates various CSS animations and transitions to enhance the 
 
 ## Table of Contents
 
-- Overview
-- Files Included
-- CSS Animations
-  - Exercise 1
-  - Exercise 2
-  - Exercise 3
-  - Box Animation
-- How to Use
-- Conclusion
+- [Animations with CSS](#animations-with-css)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Files Included](#files-included)
+  - [CSS Animations](#css-animations)
+    - [Exercise 1](#exercise-1)
+    - [Exercise 2](#exercise-2)
+    - [Exercise 3](#exercise-3)
+    - [Box Animation](#box-animation)
+  - [How to Use](#how-to-use)
+  - [Conclusion](#conclusion)
 
 ## Overview
 
