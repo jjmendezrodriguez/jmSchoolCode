@@ -47,6 +47,7 @@ pasa al siguiente en caso de no tener las opciones el navegador Selecciona uno s
 
 * Margins pro
 
+   syntax:
  margin: top right bottom left;
 
     esta es la manera de ver Css tiene para margin y sus opciones.
