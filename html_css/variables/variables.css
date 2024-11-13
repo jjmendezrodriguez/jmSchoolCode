@@ -1,0 +1,40 @@
+/* syntax for defining global variables in css */
+:root {
+  --red: #ff6f69;
+  --beige: #ffeead;
+  --yellow: #ffcc5c;
+}
+
+/* The variable in css are defined with -- then the name of the variable & the value.
+the syntax is '--variable-name: value;'. The variable can be used in the css file by
+using var(--variable-name). We can also use the variable in the html file by using
+the style attribute. Have access to the variable in the css file by using the var() function.
+Have access to the DOM by using the getComputedStyle() function, and for themes like dark mode. */
+
+html,
+body {
+  background: var(--beige);
+  color: var(--red);
+}
+
+h1,
+p {
+  color: var(--red);
+}
+
+#navbar a {
+  color: var(--red);
+}
+
+.item {
+  --red: #ff8e69;
+  --item-yellow: #ffcc5c;
+  /* The variable can be redefined in the class. but ony applies to the class element.
+  The variable can add a reference --item-yellow: var(--yellow); */
+  background: var(--yellow);
+}
+
+button {
+  background: var(--red);
+  color: var(--item-yellow);
+}
