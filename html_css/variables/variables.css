@@ -3,6 +3,10 @@
   --red: #ff6f69;
   --beige: #ffeead;
   --yellow: #ffcc5c;
+  --main-color: var(--red);
+  /* Puedes tener otra variable dentro de una variable.
+  Para hacer referencia a otra variable. Tiene que ser definida antes de ser usada.
+  Ver '#navbar a' para entender uso.  */
 }
 
 /* The variable in css are defined with -- then the name of the variable & the value.
@@ -10,6 +14,12 @@ the syntax is '--variable-name: value;'. The variable can be used in the css fil
 using var(--variable-name). We can also use the variable in the html file by using
 the style attribute. Have access to the variable in the css file by using the var() function.
 Have access to the DOM by using the getComputedStyle() function, and for themes like dark mode. */
+
+.grip {
+  --column: 200px 200px;
+}
+
+/* Styles */
 
 html,
 body {
@@ -23,7 +33,8 @@ p {
 }
 
 #navbar a {
-  color: var(--red);
+  color: var(--main-color); /* Para que cambie tienes que definirla. */
+  --main-color: orange; /* Se puede redefinir la variable en el class. */
 }
 
 .item {
@@ -34,7 +45,32 @@ p {
   background: var(--yellow);
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: var(--columns);
+  grid-auto-rows: 140px;
+  grid-gap: 20px;
+  justify-content: center;
+}
+
 button {
   background: var(--red);
   color: var(--item-yellow);
+}
+
+@media all and (min-width: 450px) {
+  /* @media significa que se aplica a todos los dispositivos y min-width es el ancho minimo de la pantalla.
+
+La syntacis es:
+@media = en CSS es una regla que permite aplicar estilos específicos a elementos de una página web según
+las características del dispositivo, como el tamaño de la pantalla o la orientación, para crear un diseño responsivo.
+all = significa que se aplica a todos los dispositivos
+and = es un operador logico
+min-width = es el ancho minimo de la pantalla para que se aplique el estilo */
+
+  /* En este caso se aplica a todos los dispositivos con un ancho minimo de 450px
+y se cambia el valor del class grid a 200px. Puedes agregar mas elementos en el @media. */
+  .grid {
+    --columns: 100px;
+  }
 }
