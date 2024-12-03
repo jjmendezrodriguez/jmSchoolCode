@@ -1,0 +1,41 @@
+/* CSS SIEMPRE PRIORIZA el estilo primero mientras mas especifico seas */
+
+.container {
+  border: 5px solid #ffcc5c;
+  display: flex; /* distribute children (content) in a row by default, block and horizontal */
+  flex-direction: row; /* 'Column' will make the children stack vertically */
+  justify-content: space-around; /* 'space-between' will push the content to the edges */
+  /* other values: 'center', 'flex-start', 'flex-end', 'space-around', 'space-evenly' and more */
+}
+/* They need to be direct children of the flexbox container they turn into flex items.
+By default, flex items are laid out in a row from left to right and top to bottom. */
+
+/* Giveing class to each children can control the position of each child. 
+For example, the following class will push the logout button to the right.
+will dipend on the order of the children in the html file, * the 
+justify-content property will not work. */
+
+.logout {
+  margin-left: auto; /* Push the logout button to the right */
+}
+
+/* For make it responsive, we can use media queries */
+.container > div {
+  flex: 1; /* Each child will take up an equal amount of space and grow and shrink equally */
+}
+
+.container > .search {
+  flex: 2; /* The search bar will take up twice as much space as the other children.
+    flex-grow: 1; will make the search bar grow and take up more space higher the number more space
+    flex-shrink: 1; will make the search bar shrink (encojer) and take up less space
+    flex-basis: 100px; will set the initial size of the search bar
+    flex: 1 1 100px; will set all three properties at once. 
+orden is: g s basis */
+}
+
+/* align-items: center; will center the children vertically have to be in the container
+have other options like 'flex-start', 'flex-end', 'stretch', 'baseline' */
+
+/* Working with *'column' need to specify the height of the container */
+
+/* flex-wrap: wrap; will wrap the children to the next line if they don't fit in the container */
