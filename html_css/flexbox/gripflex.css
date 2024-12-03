@@ -1,0 +1,23 @@
+.container {
+  display: flex; /* make the container a flex container */
+  flex-wrap: wrap; /* wrap the content, by default is nowrap */
+}
+
+.container > div > img {
+  /* select the image inside the div, for make more specific */
+  width: 100%; /* 100% of the parent container for the image be the same size */
+  height: 100%;
+  object-fit: cover; /* cover the image size for the container */
+}
+
+.container > .normal {
+  flex: 1 1 150px;
+}
+
+.container > .big {
+  flex: 1 1 250px; /* grow, shrink, basis */
+}
+
+/* .container > div {
+  flex: 1 1 150px; 'flex-grow, flex-shrink, flex-basis'
+} */

@@ -26,7 +26,7 @@ justify-content property will not work. */
 
 .container > .search {
   flex: 2; /* The search bar will take up twice as much space as the other children.
-    flex-grow: 1; will make the search bar grow and take up more space higher the number more space
+    flex-grow: 1; will make the search bar grow and take up more space, higher the number more space
     flex-shrink: 1; will make the search bar shrink (encojer) and take up less space
     flex-basis: 100px; will set the initial size of the search bar
     flex: 1 1 100px; will set all three properties at once. 
@@ -37,5 +37,8 @@ orden is: g s basis */
 have other options like 'flex-start', 'flex-end', 'stretch', 'baseline' */
 
 /* Working with *'column' need to specify the height of the container */
+
+/* using order property to change the order of the children the starting point is 0 
+sample is order; (num); */
 
 /* flex-wrap: wrap; will wrap the children to the next line if they don't fit in the container */
