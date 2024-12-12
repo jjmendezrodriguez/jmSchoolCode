@@ -2,64 +2,79 @@
 
 Css Syntax & info.
 
-Css trabaja seleccionando elementos de la pagina en este caso los tag de HTML
-ejemplo: <h1></h1>, <body></body> ect...
+   * Css trabaja seleccionando elementos de la pagina en este caso los tag de HTML
+      ejemplo: <h1></h1>, <body></body> ect...
 
-Seleccionas el tag y lo llamas para editar y costumisar tus elementos.
-ejemplo:
+      Seleccionas el tag y lo llamas para editar y costumisar tus elementos.
+      ejemplo:
 
-body {
-   color: red;
-   property: value;
-}
+      Selector en este caso es body.
+      body {
+         color: red;
+         property: value;
+      }
 
-^ Esta es la Syntax de css.
-Esta syntax significa = el color de texto dentro de body sea rojo.
+      ^ Esta es la Syntax de css.
+      Esta syntax significa = el color de texto dentro de body sea rojo.
+      dentro de las llaves{} esta 'property: value;'
+
+   * SAMPLES:
+
+    body {
+    background: wheat;     /* red, blue, yellow, etc */
+    color: red;             /* red, blue, yellow, etc */
+    font-size: 30px;        /* 0px - 100px and beyond */
+    font-weight: bold;   /* lighter, normal, bold  */
+    text-align: center;      /* left, center or right  */ 
+    margin-top:20px;        /* From 0px and upwards   */
+    }  
 
 
 * Inline & block elements:
 
-display: inline; = para alinear en horizontal (una linea)
+   display: inline; = para alinear en horizontal (una linea)
 
-display: block; = para alinear en vertical, columna arriba asi abajo.
+   display: block; = para alinear en vertical, columna arriba asi abajo.
 
 * Margins / margenes:
 
-margin: value;
+   margin: value;
 
-El browser (la web) agraga 8px automaticos de a la redonda.
+   El browser (la web) agraga 8px automaticos de a la redonda.
 
-margin-top: 50px; = From 0px and upwards. asignas una separacion de arriba.
+   margin-top: 50px; = From 0px and upwards. asignas una separacion de arriba.
 
-margin: 0; = Elimina los margenes. A la redonda
+   margin: 0; = Elimina los margenes. A la redonda
 
-Cuando usas margin-top y margin-bottom se puede canselar una con el otro si coinsiden
-y el mayor predominara, Esto aplica si donte termina bottom comiensa top.
+   Cuando usas margin-top y margin-bottom se puede canselar una con el otro si coinsiden
+   y el mayor predominara, Esto aplica si donte termina bottom comiensa top.
 
 * Centering elements / centralizamos elementos:
 
-centralizados con margin en 3 partes:
-   1. display: block; para todo controlar todo el espacio horizontal
-   2. width asignamos un ancho
-   3. margin-left: auto;
-      margin-right: auto; Asi se divide el espacio en blanco entre los 2.
-   
-   Esto funcona solo con elementos simples (uno) para multiples usa Flex.
+   centralizados con margin en 3 partes:
+      1. display: block; para todo controlar todo el espacio horizontal
+      2. width asignamos un ancho, en img si asignamos solo este valor ajusta el height auto.
+      3. margin-left: auto;
+         margin-right: auto; Asi se divide el espacio en blanco entre los 2.
+      
+      Esto funcona solo con elementos simples (uno) para multiples usa Flex.
 
 * Padding espacio interior del elemento:
 
-padding: value;
+   padding: value;
 
-Como decir un espacio interior.
-Usar Padding es ala redonda, si quieres un lado espesifico lo espesificas ejemplo: padding-top, padding-left.
+   Como decir un espacio interior.
+   Usar Padding es ala redonda, si quieres un lado espesifico lo espesificas ejemplo: padding-top, padding-left.
 
 * Border:
 
-border: 4px solid yellow;
-      value style color
+   border: 4px solid yellow;
+         value style color
 
--Hay distintos type como en dots (puntos), el comun es solid.
--Se puede crear un efecto round usando = border-radius: value;
+   border-radius: value;
+
+   -Hay distintos type como en dots (puntos), el comun es solid.
+   -Se puede crear un efecto round usando = border-radius: value;
 
 * The box model se conose como el manejo de:
    -Margins
@@ -69,56 +84,58 @@ border: 4px solid yellow;
 
 * Content:
 
-line-height: value;
+   line-height: value;
 
-Se usa para la altura del texto en los inputs.
+   Se usa para la altura del texto en los inputs.
 
 * Bottom / botones o btn:
 
-Los botones se crean con un width standar no hace falta asignar uno.
+   Los botones se crean con un width standar no hace falta asignar uno.
 
-none = nada / para eliminar cosas.
+   none = nada / para eliminar cosas.
 
 * Text aline:
 
-text-align: center;
+   text-align: center;
 
-Es inflexible y simples pero es mas facil su uso, trabaja con todos los elementos alineados
-no solo texto. Es mejor aplicarlo al grupo.
+   Es inflexible y simples pero es mas facil su uso, trabaja con todos los inline elements
+   no solo texto. Es mejor aplicarlo al grupo. 
+   `Dependiendo donde lo apliques ajusta se puede aplicar en el body asi todos es centralizado.
 
 * Flexbox:
 
-display: flex; 
+   display: flex; 
 
-Creas como un contenedor = crear grupos:
+   Creas como un contenedor = crear grupos usando <div>
+   </div>:
 
-HTML:
-   <div class="nav-wrapper">
-            <div class="item">▽ Shoes</div>
-            <div class="item">▽ Hoodies</div>
-            <div class="item">▽ T Shirts</div>
-        </div>
+   HTML:
+      <div class="nav-wrapper">
+               <div class="item">▽ Shoes</div>
+               <div class="item">▽ Hoodies</div>
+               <div class="item">▽ T Shirts</div>
+         </div>
 
-CSS:
- (para set el div tag)
-   .nav-wrapper {
-      display: flex;
-      justify-content: space-around; (usas para separar en espacios iguales, hay mas opciones.)
-   }
+   CSS:
+   (para set el div tag)
+      .nav-wrapper {
+         display: flex;
+         justify-content: space-around; (usas para separar en espacios iguales, hay mas opciones.)
+      }
 
- (para set up los botones)
-   .item {
-      text-align: center;
-      border: 1px solid black;
-      padding: 10px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      margin-left: 10px;
-      margin-right: 10px;
+   (para set up los botones)
+      .item {
+         text-align: center;
+         border: 1px solid black;
+         padding: 10px;
+         margin-top: 10px;
+         margin-bottom: 10px;
+         margin-left: 10px;
+         margin-right: 10px;
 
-   }
+      }
 
-Con este setup le das la propiedad al <div></div> y los items los trabaja por separado.
+   Con este setup le das la propiedad al <div></div> y los items los trabaja por separado.
 
 * Class:
 
@@ -131,8 +148,8 @@ elemplo:
                 <button class="btn">Google Search</button>
                 <button class="btn">I'm Feeling Lucky</button>
             </div>
-   Todo lo que este en el css de .btn-wrapper va a editar solo ese elemento '<div class="btn-wrapper">'
-   que esta dentro de los tags.
+   Todo lo que este en (en el file de css de usamos punto(.) para que css detecte que es una class)
+   .btn-wrapper va a editar solo ese elemento '<div class="btn-wrapper">' que esta dentro de los tags div.
 
 * Inspect
 

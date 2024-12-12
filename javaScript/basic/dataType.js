@@ -1,6 +1,6 @@
 let str = "texto o cadenas de texto dentro de comillas";
 let num = 1234; // no need "comillas" para numeros
-let float = 1.5; // en javaScript no necesitas identificar los float.
+let float = 1.5; // in javaScript no need to identificar float.
 let boolean = "true or false not need to be in capital letter";
 // diferents types of value are called data types or types in .js.
 

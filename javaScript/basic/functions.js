@@ -4,7 +4,7 @@
 function increment() {
   // Function body, programa lo que hace tu funcion cada vez que la llamas:
   console.log("The button was clicked");
-  // En este caso ^ miestra en la consola: The button was clicked
+  // En este caso ^ muestra en la consola: The button was clicked
 }
 
 function countDown() {

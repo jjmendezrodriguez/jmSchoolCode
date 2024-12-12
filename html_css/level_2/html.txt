@@ -1,58 +1,65 @@
-HTML LEVEL 2
+HTML_CSS LEVEL 2
 
 * Img:
 
- The path syntax
- ./  = start from the same directoty the current file is in
- ../ = start from the parent directory of the current file.(the directory above)
-  /  = star from the project's root directory.
+   The path syntax
+   ./  = start from the same directoty the current file is in
+   ../ = start from the parent directory of the current file.(the directory above)
+   /  = star from the project's root directory.
+   Si usa width solamente el height se ajusta auto, si usas los 2 creas un efecto stretch
+   y puedes distorcional la imagen.
 
 * Alt:
 
-Is a description of what is the content of the tag, if is a image
-they discribe what is in the img.
+   Is a description of what is the content of the tag, if is a image
+   they discribe what is in the img.
 
 * Flexbox
 
-display: flex;
+   display: flex;
 
-All the contenido lo convierte columnas, para evitar eso debes atrapar
-lo que quieres en un div tag. todo lo que quieras ajustar con flex.
-Cada elemento dentro lo trata como una columna.
+   All the contenido lo convierte columnas, para evitar eso debes atrapar
+   lo que quieres en un div tag. todo lo que quieras ajustar con flex.
+   Cada elemento dentro lo trata como una columna.
 
-justify-content:
-Se usa para ustificar la divicion de espacios entre las columna.
+   justify-content:
+   Se usa para ustificar la divicion de espacios entre las columna.
 
 * Utility class
 
-Is a class that every time you call the class they will have the CSS
-value propertys.
+   Is a class that every time you call the class they will have the CSS
+   value propertys.
 
-class="value value2 value3"
-Cada value dentro de la case es el elemento y aplica el CSS a ese grupo.
+   class="value value2 value3"
+   Cada value dentro de la case es el elemento y aplica el CSS a ese grupo.
 
 * CSS inheritance
 
-Ayuda a ser mas eficiente y escribir menos.
-They are mare than 40
-depende como tengas div es cuantas inheritance vas a usar.
+   Ayuda a ser mas eficiente y escribir menos.
+   They are mare than 40
+   depende como tengas div es cuantas inheritance vas a usar.
+
+* margin
+
+   margin: auto auto;
+   help Centering the content.
 
 * Font
 
-Tipo the letra que se usa en la web usar.
+   Tipo the letra que se usa en la web usar.
 
-    font family: style1, style2, sans-serif;
-con esto escojemos una familia de texto por si el cliente no tiene ese style
-pasa al siguiente en caso de no tener las opciones el navegador Selecciona uno sans-serif.
+      font family: style1, style2, sans-serif;
+   con esto escojemos una familia de texto por si el cliente no tiene ese style
+   pasa al siguiente en caso de no tener las opciones el navegador Selecciona uno sans-serif.
 
 * Margins pro
 
-   syntax:
- margin: top right bottom left;
+      syntax:
+   margin: top right bottom left;
 
-    esta es la manera de ver Css tiene para margin y sus opciones.
-    como el rolj de top a derecha luego bajo y left.
+      esta es la manera de ver Css tiene para margin y sus opciones.
+      como el rolj de top a derecha luego bajo y left.
 
  margin: vertical horizontal;
 
-    Este metodo es para 2 valores si ls valores son iguales puedes aplicar este metodo.
+   Este metodo es para 2 valores si ls valores son iguales puedes aplicar este metodo.

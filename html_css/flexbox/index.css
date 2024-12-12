@@ -1,5 +1,7 @@
 /* CSS SIEMPRE PRIORIZA el estilo primero mientras mas especifico seas */
 
+/* use height: 100% in the html, body and container to make the container take up the full height of the page */
+
 .container {
   border: 5px solid #ffcc5c;
   display: flex; /* distribute children (content) in a row by default, block and horizontal */
@@ -16,12 +18,14 @@ will dipend on the order of the children in the html file, * the
 justify-content property will not work. */
 
 .logout {
-  margin-left: auto; /* Push the logout button to the right */
+  margin-left: auto; /* Push the logout button to the right 
+  se usa para mover elementos espesificos. */
 }
 
 /* For make it responsive, we can use media queries */
 .container > div {
-  flex: 1; /* Each child will take up an equal amount of space and grow and shrink equally */
+  flex: 1; /* Each child will take up an equal amount of space and grow and shrink equally 
+  ocupa todo el espacio y se encoje y crese ocupando todo el espacio. */
 }
 
 .container > .search {
@@ -41,4 +45,13 @@ have other options like 'flex-start', 'flex-end', 'stretch', 'baseline' */
 /* using order property to change the order of the children the starting point is 0 
 sample is order; (num); */
 
-/* flex-wrap: wrap; will wrap the children to the next line if they don't fit in the container */
+/* flex-wrap: wrap; will wrap (envuelve) the children to the next line if they don't fit in the container
+ */
+
+.logout {
+  align-self: flex-start; /* will align the logout button to the top of the container 
+  Para poder ajustar solo un elemento espesificado */
+}
+
+/* In flex a mayor sea el numero de flex-grow o flex-shrink mas espacio ocupara el elemento, si
+tienes 2 elementos el numero mayor ocupara mas espacio. */

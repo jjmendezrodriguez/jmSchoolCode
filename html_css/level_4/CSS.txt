@@ -1,0 +1,179 @@
+The CSS Level 4
+
+* La ultima propiedad de CSS es la dominante. cuando vas a organuzar tu CSS
+toma en cuenta este detalle. 
+
+* comma (,)
+
+    We use , for divide the elements in the CSS.
+
+    h1, h2, h3 {
+        properties
+    }
+
+    Now all h1 to h3 are goint to have the same properties, not need to
+    write over and over the same.
+
+* flexbox
+
+    syntax:
+
+    display: flex; 'Para convertirlo en flexbox'
+    justify-content: end; 'horisontal axis' 
+    align-items: center; 'vertical axis'
+
+    -justify-content:
+    start, center, end, space-around, 
+    space-evenly, space-between
+    
+    -align-items:
+    start, center, end, stretch (crese y se encoje auto)
+
+    * flex-direction
+
+    syntax:
+
+    flex-direction: value;
+
+        Work on 'row' by default. (horisontal)
+        Can be column = top to bottom (vertical)
+
+    *  align-self
+
+    syntax:
+
+    .element {
+    align-self: value; alinea un elemento
+    }
+
+    use height: 100% in the html, body and container to make the 
+    container take up the full height of the page.
+
+    * flex
+
+    syntax:
+
+    flex: 1 1 250px; grow, shrink (encoger), basis (medida base)
+
+    Aplicar a los elementos que quieras controlar
+
+    Ver flexbox folder for more info and details.
+
+* Los inline-block para centralisar usamos
+    margin: 0 auto;
+
+* tag:hover
+
+    syntax:
+    
+    tagName:hover {
+        background-image: url("eyes.jpg")
+        background-color: #ba181b;
+        font-size: 40px;
+        cursor: pointer;
+    }
+    
+    -Puedes usar solo uno o mas. Para pointer hay mas opciones.
+    -Para algo custom usa url().
+    -El hover funciona no importa la ubicacion en su css.
+
+    tagName:active {
+        transform: scale(1.1); funciona cuando hace click. 
+    }
+
+    button {
+    touch-action: manipulation; /* Mejora la velocidad de respuesta al clic */
+    }
+
+
+    * Mientras mas espesifico seas css va a priorisar las propiedades.
+
+* aria
+
+    role="img" aria-label="description"
+
+    -'role' para identificar que es.
+    -'aria-label' como si fuera alt="description" en HTML, se aplica
+    esta syntax en el tag para crear una descripcion en caso de que
+    NO se pueda ver la imagen o gif que usemos.
+
+* gradient
+
+    syntax:
+
+    background: linear-gradient(color1, color2);
+
+    opciones de linear:
+    -to top, to bottom, to left, to right
+    -45deg
+    
+    background: linear-gradient(to right, red 0%, blue 50%, green 100%);
+    % de degradado.
+
+    otras opciones:
+
+    -background: radial-gradient(circle at center, red, yellow, green);
+    -background: conic-gradient(from 90deg, red, yellow, blue);
+    -background: repeating-linear-gradient(45deg, red, yellow 10px);
+
+* audio
+
+    syntax:
+
+    <audio controls>
+			<a href="media/audio/scrimbaPodTom.mp3">download audio</a>
+			<source src="media/audio/scrimbaPodTom.mp3" type="audio/mp3">
+			<source src="media/audio/scrimbaPodTom.wav" type="audio/wav">
+		</audio>
+
+    Al tener 2 source y separandolo con el tag de source en caso de no 
+    funcionar intenta con el otro. el type es para el tipo de file.
+
+* video 
+
+    syntax:
+
+    <video controls width="400" height="225">
+			<a href="media/video/scrimbaPodTom.mp4">download video</a>
+			<source src="media/video/scrimbaPodTom.mp4" type="video/mp4">
+			<source src="media/video/scrimbaPodTom.webm" type="video/webm">
+		</video>
+
+    can add <track> for captions, transcripts
+
+    control, muted, loop, autoplay are other options for the video tag.
+
+* html table
+
+    <table></table> Para declarar que es una tabla
+    <caption></caption> For the title
+    <th scope="row or column"></th> Para heading de la tabla
+    <tbody></tbody> body of table
+    <tr></tr> for defines row
+    <td></td> cell of table
+    <tfoot></tfoot>
+
+    -Crea una tabla no es como grip ni como flex.
+    -Scope se usa para definir que es.
+
+* text-decoration
+
+    syntax:
+
+    text-decoration: value;
+    text-decoration-thickness: 3px;
+    text-decoration-thickness: 3px; revisar en la web para mas opciones.
+
+    values:
+    none = elimina todo, (quita la decoration)
+    underline = subrallado
+
+    text-transform: value;
+    Para letra mayuscula.
+
+
+
+
+
+
+

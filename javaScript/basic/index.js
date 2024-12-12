@@ -11,7 +11,7 @@ let count = 0;
 // declaration of a funtion on .js:
 // dec     name
 function increment() {
-  /* Funtion bady, programa lo que hace tu funcion cada vez que la llamas:
+  /* Funtion body, programa lo que hace tu funcion cada vez que la llamas:
 aqui llamas la variable y su nuevo valor imprime y le suma 1. */
 
   // count = count + 1

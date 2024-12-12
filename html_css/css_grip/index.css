@@ -1,0 +1,81 @@
+.container {
+  height: 100%;
+  display: grid;
+  grid-gap: 3px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 40px auto 40px;
+}
+
+.header {
+  grid-column-start: 1; /* header start first column line */
+  grid-column-end: -1; /* header end third column line.
+   visualized like |1 col or contener |2 col or contener |3. where | count the start
+   We use 3 because we have 2 columns if we have 3 columns we use 4.
+  and the simply way is  *'grip-column: 1 / 3;' 
+  reference:
+   -1 = last column line use this when you not sure how many columns you are going to have.
+   span 2 = 2 columns */
+}
+
+.menu {
+  grid-row: 2 / 3;
+}
+
+.content {
+  grid-column: 2 / -1; /* content start second column line and end last column line */
+}
+
+.footer {
+  grid-column: 1 / -1; /* footer start first column line and end last column line */
+}
+
+/* we can use 'grid-template-areas' to define the layout of the grid but only works
+  in rectangular grid. sample use:
+    grid-template-areas:
+        "header header header"
+        "menu content content"
+        "footer footer footer";
+    or numeric value:
+    grid-template-areas:
+        "1 1 1"
+        "2 3 3"
+        "4 4 4";
+    it will depend on the grid-template-columns and grid-template-rows
+    and in the header onlu use 'grid-area: header;' or 'grid-area: 1;' 
+    .header {
+      grid-area: header;
+    }
+    .menu {
+      grid-area: 2;
+    }
+    */
+
+/* Other properties in grid:
+auto-fill = fill the container with as many columns as it can fit
+auto-fit = fill the container with as many columns as it can fit but don't create empty columns
+minmax(min, max) = define the minimum and maximum size of the column
+repeat(n, value) = repeat the value n times
+fr = fraction unit, distribute the space between the columns
+grid-auto-rows = define the size of the rows that are not defined they will be auto
+grid-auto-flow = define the direction of the grid items when the rows or columns are not defined
+grid-auto-columns = define the size of the columns that are not defined they will be auto
+grid-column-gap = define the gap between the columns 
+grid-row-gap = define the gap between the rows
+grid-gap = define the gap between the rows and columns
+grid-template = define the grid-template-columns and grid-template-rows in one property
+grid = define all the grid properties in one property
+grid-area = define the grid item size and position
+dense = fill the empty spaces with the grid items used in auto-fill or auto-fit
+
+also can name lines in the grid like:
+grid-template-columns: [col1] 100px [col2] 100px [col3] 100px [col4] 100px [col5];
+grid-template-rows: [row1] 100px [row2] 100px [row3] 100px [row4] 100px [row5];
+and use the name in the grid-column and grid-row properties
+grid-column: col1 / col3;
+grid-row: row1 / row3;
+*/
+
+/* flexbox use basis, grow, shrink, and flex on content first vs 
+grid is layout first and content second */
+
+/* div:nth-child(3) use to select the third div in the container. need div to select the element */

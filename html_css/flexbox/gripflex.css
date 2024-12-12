@@ -4,6 +4,7 @@
 }
 
 .container > div > img {
+  /* use > twice to select the image inside the div */
   /* select the image inside the div, for make more specific */
   width: 100%; /* 100% of the parent container for the image be the same size */
   height: 100%;
@@ -11,11 +12,12 @@
 }
 
 .container > .normal {
+  /* use > to select the direct children */
   flex: 1 1 150px;
 }
 
 .container > .big {
-  flex: 1 1 250px; /* grow, shrink, basis */
+  flex: 1 1 250px; /* grow, shrink (encoger), basis */
 }
 
 /* .container > div {

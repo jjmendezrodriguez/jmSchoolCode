@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball</title>
+    <link rel="stylesheet" href="/javaScript/basic/proyect_1/styles.css">
+</head>
+<body>
+    <section>
+        <header>
+            <div class="title">
+            <h1>CHUPALITOS SCOREBOARD</h1>
+            </div>
+        </header>
+        <!-- SCOREBOARD -->
+        <div class="board-container">
+            <div class="home">
+                <h2 class="home-team">HOME</h2>
+                <input type="text" class="home-input" placeholder="Home Team Name">
+                <h2 class="home-score">000</h2>
+                <h3 class="home-team">Times outs</h3>
+                <h3 class="quarter">5</h3>
+                <h3 class="home-team">Team Fouls</h3>
+                <h3 class="quarter">0</h3>
+            </div>
+            <div class="scoreboard">
+                <h2 class="clock">12:00</h2>
+                <h2 class="txt-quarter">Quarter</h2>
+                <h3 class="quarter">1</h3>
+                <div class="poss">
+                <h3><button class="dote" onclick="possesion()"><</button>Possession<button class="dote" onclick="possesion()">></button></h1>
+                </div>
+                <h2 class="title-shot-clock">Shot Clock</h2>
+                <h3 class="shot-clock">24</h3>
+            </div>
+            <div class="guest">
+                <h2 class="guest-team">GUEST</h2>
+                <input type="text" class="guest-input" placeholder="Guest Team Name">
+                <h2 class="guest-score">000</h2>
+                <h3 class="guest-team">Times outs</h3>
+                <h3 class="quarter">5</h3>
+                <h3 class="guest-team">Team Fouls</h3>
+                <h3 class="quarter">0</h3>
+            </div>
+        </div>
+    </section>
+    <section>
+    <!-- Playes -->
+     <div class="players">
+        <div class="home-players">
+            <h2>Home Players</h2>
+            <ul>
+                <li><input type="text" class="players-name" placeholder="Player1 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player2 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player3 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player4 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player5 name"></li>
+                <h2>Beach</h2>
+                <li><input type="text" class="players-name" placeholder="Player6 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player7 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player8 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player9 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player10 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player11 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player12 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player13 name"></li>
+            </ul>
+        </div>
+
+        <div class="guest-players">
+            <h3>Guest Players</h3>
+            <ul>
+                <li><input type="text" class="players-name" placeholder="Player1 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player2 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player3 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player4 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player5 name"></li>
+                <h2>Beach</h2>
+                <li><input type="text" class="players-name" placeholder="Player6 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player7 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player8 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player9 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player10 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player11 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player12 name"></li>
+                <li><input type="text" class="players-name" placeholder="Player13 name"></li>
+            </ul>
+        </div>
+    </div>
+    </section>
+    <!-- CONTROLS -->
+     <p class="control-title">CONTROLS</p>
+        <div class="clock-options">
+            <div class="clock-btn">
+                <button id="start-clock">Start Clock</button>
+                <button id="stop-clock">Stop Clock</button>
+            </div>
+            <div class="game-btn">
+                <button id="start-game" onclick="">Star Game</button>
+                <button id="reset" onclick="">Reset All</button>
+            </div>
+        </div>
+    <div class="controls">
+        <div class="home-btn">
+            <button class="home-3-points"><span class="pointNum">+3 </span>Points</button>
+            <button class="home-2-points"><span class="pointNum">+2 </span> Points</button>
+            <button class="home-free-throw">Free Throw</button>
+            <button class="home-fouls">Fouls</button>
+            <button class="home-time-out">Time Out</button>
+        </div>
+        
+        <div class="guest-btn">
+            <button class="guest-time-out">Time Out</button>
+            <button class="guest-fouls">Fouls</button>
+            <button class="guest-free-throw">Free Throw</button>
+            <button class="guest-2-points"><span class="pointNum">+2 </span> Points</button>
+            <button class="guest-3-points"><span class="pointNum">+3 </span> Points</button>
+        </div>
+    </div>
+    <script src="/javaScript/basic/proyect_1/index.js"></script>
+</body>
+</html>

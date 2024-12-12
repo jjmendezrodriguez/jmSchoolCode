@@ -1,0 +1,21 @@
+/*  container es un elemento que actúa como un contenedor para otros elementos. 
+Es común definir un contenedor para establecer una estructura base en el diseño,
+ como el ancho máximo de la página, el margen automático para centrar el contenido,
+  o para organizar el layout con frameworks o diseño personalizado.*/
+
+.container {
+  display: grid; /* make the container a grid */
+  grid-template-rows: 50px 50px 200px; /* define the rows properties, size and number of rows */
+  /* number of rows =  1     2    3    more sizes add more rows */
+  grid-template-columns: 1fr 1fr 1fr; /* divide by fr (fraction) = 1/3 of the container and make it responsive.
+  we can use 'grid-template-columns: repeat(3, 1fr);' first parameter is the number of columns,
+  second is the size of the columns */
+  /* We can conbine the two properties in one line: grid-template: 50px 50px 200px / 1fr 1fr 1fr; 
+  when rows goin first and columns after the slash '/'. Minimize the code will be
+   * 'grid-template: repeat(3, 50px) / repeat(3, 1fr);' */
+
+  grid-gap: 3px; /* define the gap between the columns and rows */
+}
+
+/* grid-template-columns: 100px auto; /* define the columns properties, size and number of columns
+      number of columns =  1      2   more sizes add more columns */

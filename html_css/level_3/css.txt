@@ -1,0 +1,97 @@
+The CSS Level 3
+
+* background-images
+
+    syntax:
+
+    background-image: url("path");
+    background-size: cover;
+
+    Con estos ajustes podemos ajustar nuestra imagen. La imagen tiene que estar 
+    guarddada en el file donde este apuntando el path.
+
+    Para buscar en la web 'https://unsplash.com/' buena calidad e images.
+
+* Inherit or inheritance
+
+    Is when a child element inherits (hereda) a property from its parent.
+    Para que otros tags como button herede del padrino declaralo.
+    Los links no heredan color tienen sus propiedades. (pueden aver otros)
+
+    font-family: inherit; aqui lo usamos para el font.
+
+    Can use 'google fonts' or 1001fonts.com
+
+    -De la manera manual en 1001fonts.com download el font que vas a usar.
+    copias el file '.ttf' a tu proyecto.
+    -En tu file css lo llamas:
+
+        @font-face {
+        src: url("fontName.ttf");
+        font-family: fontName; 'Can use the name you want'
+        }
+    
+    Mayo numero de fonts descargados mas pesada puede ser la pagina. Se recomienda
+    usar de 2 @ 3 manten un balance para que sea un buen performance. 
+
+* span 
+
+    syntax
+
+    <span class="name">text</span>
+
+    Con este tag puedes editar solo el texto que este dentro del tag.
+    Usando el nombre de la clase editas el CSS para que text tenga
+    atributos especificos.
+
+* id
+
+    id="name"
+
+    De esta manera puedes editar en css o en .js los tags la diferencia 
+    entre class y id es que id es para uso espesifico solo para un tag,
+    mientras que class es para reusarlo. lo llamas usando:
+
+    #name {
+        properties de css
+    }
+
+*  GIF
+
+    https://giphy.com/ en esta pagina puedes descargar imagenes '.webp'
+
+    background-image: url("images/galaxy.webp");
+
+    De esta manera puedes tener una imagen en movimiento. 
+
+* font-weight
+
+    For make text bold or lighter can use font-weight, puedes asignar
+    valor numerico o bold de text;
+
+    font-weight: value;
+
+* text-shadow
+
+    syntax:
+
+    text-shadow: 0px 0px 0px black;
+
+    primer valor = horisontal. (negative < left, positive > right)
+    segundo valor = vertical. (negative ^ top, positive ⬇️ bottom)
+    tercer valor = sombra, degradado o difuninado (mayor num mas degradado)
+    ultimo valor = color de la sombra. puedes usar 2 valores y omitir
+        el tercer valor.
+    
+    * para un glow effect podemos usar:
+
+    text-shadow: 0px 0px 5px black;
+
+* lang
+
+    <html lang="en">
+
+    Se usa para asignar el lenguague de la pagina. 
+
+
+
