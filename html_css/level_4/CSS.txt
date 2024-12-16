@@ -68,7 +68,7 @@ toma en cuenta este detalle.
     
     tagName:hover {
         background-image: url("eyes.jpg")
-        background-color: #ba181b;
+        background-color: #f0f0f0; (Para crear sombra)
         font-size: 40px;
         cursor: pointer;
     }

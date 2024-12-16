@@ -6,6 +6,8 @@ The CSS Level 3
 
     background-image: url("path");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center:
 
     Con estos ajustes podemos ajustar nuestra imagen. La imagen tiene que estar 
     guarddada en el file donde este apuntando el path.
