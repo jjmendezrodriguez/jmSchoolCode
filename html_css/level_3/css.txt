@@ -87,7 +87,7 @@ The CSS Level 3
     
     * para un glow effect podemos usar:
 
-    text-shadow: 0px 0px 5px black;
+        text-shadow: 0px 0px 5px black;
 
 * lang
 
@@ -96,4 +96,7 @@ The CSS Level 3
     Se usa para asignar el lenguague de la pagina. 
 
 
+* border-bottom 
 
+    Se utilisa para subrallar es una de las formas no solo
+    con span. 

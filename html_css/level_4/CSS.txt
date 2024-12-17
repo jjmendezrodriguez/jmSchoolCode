@@ -24,7 +24,7 @@ toma en cuenta este detalle.
 
     -justify-content:
     start, center, end, space-around, 
-    space-evenly, space-between
+    space-evenly, space-between (divide the extra space between element)
     
     -align-items:
     start, center, end, stretch (crese y se encoje auto)
@@ -62,7 +62,7 @@ toma en cuenta este detalle.
 * Los inline-block para centralisar usamos
     margin: 0 auto;
 
-* tag:hover
+* tag:hover add tag:focus (buena practica tener ambos)
 
     syntax:
     
