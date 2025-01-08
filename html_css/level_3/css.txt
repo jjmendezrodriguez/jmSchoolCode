@@ -8,19 +8,21 @@ The CSS Level 3
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center:
+    option:
+    height: 100vh; esto en el <body>
 
     Con estos ajustes podemos ajustar nuestra imagen. La imagen tiene que estar 
     guarddada en el file donde este apuntando el path.
 
     Para buscar en la web 'https://unsplash.com/' buena calidad e images.
 
-* Inherit or inheritance
+* Inherit or inheritance (hereda)
 
     Is when a child element inherits (hereda) a property from its parent.
     Para que otros tags como button herede del padrino declaralo.
     Los links no heredan color tienen sus propiedades. (pueden aver otros)
 
-    font-family: inherit; aqui lo usamos para el font.
+* font-family: inherit; aqui lo usamos para el font.
 
     Can use 'google fonts' or 1001fonts.com
 

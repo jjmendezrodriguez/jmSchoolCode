@@ -18,9 +18,9 @@ HTML_CSS LEVEL 2
 
    display: flex;
 
-   All the contenido lo convierte columnas, para evitar eso debes atrapar
+   All the content lo convierte columnas, debes atrapar
    lo que quieres en un div tag. todo lo que quieras ajustar con flex.
-   Cada elemento dentro lo trata como una columna.
+   Cada elemento dentro del tag lo trata como una columna.
 
    justify-content:
    Se usa para ustificar la divicion de espacios entre las columna.
@@ -33,11 +33,11 @@ HTML_CSS LEVEL 2
    class="value value2 value3"
    Cada value dentro de la case es el elemento y aplica el CSS a ese grupo.
 
-* CSS inheritance
+* CSS inheritance (heredar)
 
    Ayuda a ser mas eficiente y escribir menos.
-   They are mare than 40
-   depende como tengas div es cuantas inheritance vas a usar.
+   They are mare than 40 tag que heredan. 
+   depende como tengas div es cuantas inheritance van a heredar.
 
 * margin
 
