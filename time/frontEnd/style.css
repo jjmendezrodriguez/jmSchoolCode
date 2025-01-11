@@ -1,0 +1,336 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* ===========
+     Proyect
+   ============*/
+
+:root {
+  --text-color: #00161a;
+  --background-color: #f9f9f9;
+  --icon-color: #a7cce7;
+  --input-color: white;
+  --text-style: nunito;
+}
+
+@font-face {
+  font-family: nunito;
+  src: url(Nunito/Nunito-VariableFont_wght.ttf);
+}
+
+html {
+  font-family: var(--text-style);
+  font-size: 16px;
+  text-align: center;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  touch-action: manipulation;
+}
+
+body {
+  margin: 0 auto;
+  background: url("/time/welcome.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  overflow: auto;
+}
+
+/* Nav Menu */
+
+.container-nav {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid var(--background-color);
+}
+
+.nav-links {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  color: #f9f9f9;
+}
+
+.nav-home,
+.nav-about,
+.nav-singin {
+  text-decoration: none;
+  padding: 1em 2em;
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+.nav-home:hover,
+.nav-about:hover,
+.nav-singin:hover {
+  padding: 1em 2em;
+  box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1), -10px -10px 10px white;
+  transition: 300ms ease;
+  background-color: white;
+}
+
+.nav-home:active,
+.nav-about:active,
+.nav-singin:active {
+  padding: 1em 2em;
+  box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1) inset,
+    -10px -10px 10px white inset;
+  transition: 300ms ease;
+  background-color: white;
+}
+
+/* sing in */
+
+.singin-section {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  border: 2px solid red;
+}
+
+.title-singin {
+  margin: 0 0 0.2em 0;
+}
+
+.container-singin {
+  margin: 0 auto;
+  width: 375px;
+  height: 375px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+}
+
+.container-singin:hover {
+  background-color: var(--input-color);
+}
+
+.title-singin,
+.title-singup {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.singup-btn,
+.singin-btn {
+  background-color: var(--icon-color);
+  color: var(--input-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 18px;
+  padding: 0.7em 4em;
+  margin: 0.8em;
+  cursor: pointer;
+}
+
+.singup-btn:hover,
+.singin-btn:hover {
+  background-color: #8abbd7;
+  color: var(--text-color);
+}
+
+.singup-btn:active,
+.singin-btn:active {
+  scale: 1.1;
+}
+
+.singup-option,
+.singin-option {
+  margin: 0 0 0.2em 0;
+}
+
+/* sing up */
+
+.singup-section {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.container-singup {
+  margin: 0 auto;
+  width: 375px;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  border: 2px solid green;
+}
+
+.container-singup:hover {
+  background-color: var(--input-color);
+}
+
+.title-singup {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.form-name {
+  margin: 0.4em;
+  padding: 0;
+}
+
+.input {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 2px solid var(--icon-color);
+}
+
+input {
+  border: none;
+  height: 1.9rem;
+  padding: 0 10px;
+  background: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+textarea {
+  border: none;
+  padding: 11px;
+  resize: none;
+  background-color: transparent;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.label-text {
+  text-align: left;
+  margin: 0;
+}
+
+.link-singup,
+.link-singin {
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--icon-color);
+  cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    width: min(
+      400px,
+      90%
+    ); /* esto se usa para que el contenedor no sea mayor a 400px ni al 100% */
+  }
+}

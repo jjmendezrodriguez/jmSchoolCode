@@ -171,6 +171,27 @@ toma en cuenta este detalle.
     text-transform: value;
     Para letra mayuscula.
 
+* transition
+
+    syntax:
+
+    transition: opacity 2s; 
+    Se usa para que el contenedor aparezca de forma lenta
+
+* weight (ancho)
+
+    syntax:
+
+    width: min(maxPxValue, 90%); 
+    Esto se usa para que el contenedor no sea mayor a maxPxValue ni al 90%
+
+    width: max(minPxValue, 90%); 
+    Esto se usa para que el contenedor no sea menor a 300px ni al 90%
+
+    combinar ambos usar clamp()
+
+    width: clamp(min, preferred, max);
+
 
 
 
