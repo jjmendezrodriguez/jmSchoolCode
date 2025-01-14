@@ -21,6 +21,7 @@ let boolean = "true or false not need to be in capital letter";
     - = menos / minus
     <= = menor o igual que / less than or equal to
     >= = mayor o igual que / greater than or equal to
+    % = modulo / modulo el residuo de una division
 
     
 

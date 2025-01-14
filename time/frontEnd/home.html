@@ -20,6 +20,52 @@
             </nav>
         </div>
     </header>
+    <section>
+        <div class="home-inf">
+            <h1>Pagina principal</h1>
+            <dialog>
+                <input type="text" placeholder="Enter your name">
+            <button onclick=closetest()>close</button>
+            </dialog>
+            <button onclick=opentest()>Start</button>
+        </div>
+    </section>
+    <section>
+        <details>
+            <summary>test</summary>
+            <p>Esto es una prueba del dropdown</p>
+            <input type="text" placeholder="Enter your name">
+            <button type="submit">Enter</button>
+        </details>
+    </section>
+    <section>
+            <h1>Cronómetro</h1>
+        <time id="cronometro">00:00:00</time>
+        <br>
+            <button onclick="startCronometro()">Iniciar</button>
+            <button onclick="pauseCronometro()">Pausar</button>
+            <button onclick="resetCronometro()">Reiniciar</button>
+    </section>
+    <section>
+            <h1>Countdown</h1>
+    <time id="countdown">00:00:00</time>
+    <br>
+        <button onclick="showDialog()">Asignar tiempo</button>
+        <button onclick="startCountdown()">Iniciar</button>
+        <button onclick="pauseCountdown()">Pausar</button>
+        <button onclick="resetCountdown()">Reiniciar</button>
+
+    <!-- Dialog para asignar tiempo -->
+    <dialog id="timeDialog">
+        <h3>Asignar tiempo inicial</h3>
+        <label for="minutes">Minutos:</label>
+        <input type="number" id="minutes" min="0" value="0">
+        <label for="seconds">Segundos:</label>
+        <input type="number" id="seconds" min="0" value="0">
+        <button onclick="setInitialTime()">Aceptar</button>
+        <button onclick="closeDialog()">Cancelar</button>
+    </dialog>
+    </section>
     <!-- Formulario Sing Up -->
     <section class="singup-section">
         <div class="container-singup">

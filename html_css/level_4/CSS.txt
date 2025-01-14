@@ -191,6 +191,7 @@ toma en cuenta este detalle.
     combinar ambos usar clamp()
 
     width: clamp(min, preferred, max);
+    
 
 
 
