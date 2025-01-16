@@ -24,6 +24,12 @@ function closetest() {
 // Cowndown
 // Aqui las funciones para el countdown
 
+let startTime,
+  elapsedTime = 0,
+  timerInterval = null, // se usa para almacenar el intervalo del temporizador
+  totalTime = 0,
+  isRunning = false;
+
 function showDialog() {
   document.getElementById("timeDialog").showModal();
 }
@@ -34,12 +40,15 @@ function closeDialog() {
 }
 
 // Establecer el tiempo inicial
+let initialTime = 0;
+
 function setInitialTime() {
   const minutes = parseInt(document.getElementById("minutes").value) || 0;
   const seconds = parseInt(document.getElementById("seconds").value) || 0;
 
   // Convertir a milisegundos
   totalTime = (minutes * 60 + seconds) * 1000;
+  initialTime = totalTime; // Guardar el tiempo inicial
   elapsedTime = 0;
 
   // Mostrar el tiempo inicial en el countdown
@@ -95,6 +104,7 @@ function resetCountdown() {
     clearInterval(timerInterval);
     elapsedTime = 0;
     isRunning = false;
+    totalTime = initialTime;
     document.getElementById("countdown").textContent = timeToString(totalTime);
   } else {
     alert("El countdown está en marcha.");
@@ -103,11 +113,7 @@ function resetCountdown() {
 
 // cronometro
 
-let startTime,
-  elapsedTime = 0,
-  timerInterval = null, // se usa para almacenar el intervalo del temporizador
-  totalTime = 0,
-  isRunning = false; // Estado del cronómetro
+// Estado del cronómetro
 
 function timeToString(time) {
   // Convierte el tiempo en una cadena de formato HH:MM:SS (en un string)
