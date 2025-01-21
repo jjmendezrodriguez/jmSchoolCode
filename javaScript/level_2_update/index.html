@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- para link tu css con tu HTML -->
     <link rel="stylesheet" href="level2.css">
-    <title>Document</title>
+    <title>Blackjack</title>
 </head>
 <body>
+    <section class="main-menu">
+            <h1>The Blackjack Game</h1>
+            <p id="message-el">Want to play a round?<br>
+                Press Start Game!</p>
+            <button onclick="game()">START GAME</button>
+    </section>
+    <div class="game-container">
     <h1>Blackjack</h1>
-        <p id="message-el">Want to play a round?<br>
-             Prees Start Game!</p>
         <p id="cards-el">Cards:</p>
         <p id="sum-el">Sum:</p>
         <p id="bet-el">Bet: 0</p>
         <div>
-        <button onclick="startGame()">START GAME</button>
+        <button onclick="startPlay()">START GAME</button>
         <button onclick="newGame()">NEW GAME</button>
         </div>
         <div>
@@ -25,7 +30,9 @@
         </div>
         <button onclick="startOver()">START OVER</button>
         <h2 id="player-el"></h2>
-        <script src="index.js"></script>
+        <button onclick="quit()">QUIT GAME</button>
+    </div>
+    <script src="/javaScript/level_2_update/index.js" defer></script>
 </body>
 </html>
 

@@ -35,7 +35,7 @@ print(employees_2)  # employees will be printed with random.shuffle
 
 employees = ["John", "Jane", "Jack", "Janice", "Jill"]
 
-shifts = ["Morning", "Afternoon", "Evening"]
+shifts = ["8 @ 12", "Afternoon", "Evening"]
 
 schedule = {}
 
