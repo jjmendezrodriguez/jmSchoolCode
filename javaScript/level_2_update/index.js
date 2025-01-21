@@ -31,7 +31,19 @@ function getRamdomCard() {
   return randomNumber; // por ser una variable let y local, podemos usarla en cualquier parte de la funcion.
 }
 
-function startGame() {
+const startGame = document.querySelector(".main-menu");
+const gameStart = document.querySelector(".game-container");
+
+function game() {
+  (startGame.style.display = "none"), (gameStart.style.display = "block");
+}
+
+function quit() {
+  isAlive = false;
+  (startGame.style.display = "flex"), (gameStart.style.display = "none");
+}
+
+function startPlay() {
   isAlive = true; // Para que el juego inicie debe ser true.
   if (!player.name || player.name.length === 0) {
     player.name = prompt("What's your name?");
