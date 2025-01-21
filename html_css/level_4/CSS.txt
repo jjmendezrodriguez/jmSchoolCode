@@ -192,8 +192,12 @@ toma en cuenta este detalle.
 
     width: clamp(min, preferred, max);
     
+* box-sizing
 
+    syntax:
 
+    box-sizing: border-box;
+    Esto se usa para que el padding y border no afecten el tamaño del contenedor.
 
 
 
