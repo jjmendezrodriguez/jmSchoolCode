@@ -1,24 +1,81 @@
-const singUp = document.querySelector(".singup-section");
-const singIn = document.querySelector(".singin-section");
+const singUp = document.getElementById("singup-section");
+const singIn = document.getElementById("singin-section");
 const body = document.querySelector("body");
+const homePage = document.querySelector(".practica");
 
 function showSingup() {
-  (singUp.style.display = "flex"),
-    (singIn.style.display = "none"),
-    (body.style.position = "fixed"),
-    (body.style.background =
-      'url("/time/welcome.webp") no-repeat center/cover');
+  singUp.style.display = "flex";
+  singIn.style.display = "none";
+  body.style.position = "fixed";
+  body.style.background = 'url("/time/welcome.webp") no-repeat center/cover';
+  homePage.style.display = "none";
 }
 
 function showSingin() {
-  (singIn.style.display = "flex"), (singUp.style.display = "none");
+  singIn.style.display = "flex";
+  singUp.style.display = "none";
+  homePage.style.display = "none";
 }
 
 function opentest() {
   document.querySelector("dialog").showModal();
 }
+
 function closetest() {
-  document.querySelector("dialog").close();
+  const alerta = document.querySelector("#alert-1");
+
+  // Verificar si la alerta existe y ocultarla
+  if (alerta) {
+    alerta.style.display = "none"; // Cambiar la visibilidad de la alerta
+  }
+
+  // Cerrar el diálogo
+  const dialog = document.querySelector("dialog");
+  if (dialog) {
+    dialog.close(); // Usar el método .close() para cerrar el diálogo
+  }
+}
+
+let alertMsg = document.getElementById("alert-msg");
+let myName = document.getElementById("name-el");
+
+function test() {
+  const nameInput = document.querySelector(".name-input"); // Elemento input
+  const nameFill = nameInput.value; // Valor del input
+  const alerta = document.querySelector("#alert-1");
+  const nameBtn = document.querySelector(".name-btn");
+
+  // Mensaje de alerta
+  alertMsg.textContent = "Please enter your Name";
+
+  // Validar si el campo está vacío
+  if (nameFill === "" || nameFill === null) {
+    alerta.style.display = "flex";
+    alertMsg.style.transform = "scale(1.1)";
+    alertMsg.style.transition = "transform 1s ease";
+    nameBtn.classList.add("invalid"); // Botón en rojo
+  } else {
+    myName.textContent += nameFill;
+    myName.style.textTransform = "capitalize";
+    closetest();
+  }
+
+  // Restaurar transformaciones después de 200ms
+  setTimeout(() => {
+    alertMsg.style.transform = "scale(1)";
+    alertMsg.style.textTransform = "uppercase";
+  }, 200);
+
+  // Validar entrada en tiempo real
+  nameInput.addEventListener("input", () => {
+    if (nameInput.value.trim().length > 0) {
+      // trim() elimina los espacios en blanco
+      nameBtn.classList.remove("invalid"); // Remover rojo si el campo es válido
+      alerta.style.display = "none"; // Ocultar la alerta
+    } else {
+      nameBtn.classList.add("invalid"); // Mantener rojo si sigue vacío
+    }
+  });
 }
 
 // Cowndown

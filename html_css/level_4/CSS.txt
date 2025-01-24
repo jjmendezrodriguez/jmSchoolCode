@@ -19,8 +19,8 @@ toma en cuenta este detalle.
     syntax:
 
     display: flex; 'Para convertirlo en flexbox'
-    justify-content: end; 'horisontal axis' 
-    align-items: center; 'vertical axis'
+    justify-content: end; 'horisontal axis' (X)
+    align-items: center; 'vertical axis' (Y)
 
     -justify-content:
     start, center, end, space-around, 
@@ -171,6 +171,22 @@ toma en cuenta este detalle.
     text-transform: value;
     Para letra mayuscula.
 
+* letter-spacing
+
+    syntax:
+
+    letter-spacing: 2px;
+    Se usa para separar las letras.
+
+* word-spacing
+
+    syntax:
+
+    word-spacing: 2px;
+    Se usa para separar las palabras.
+
+* text-transform: uppercase; (mayuscula)
+
 * transition
 
     syntax:
@@ -194,9 +210,125 @@ toma en cuenta este detalle.
     
 * box-sizing
 
-
     box-sizing: border-box;
     Esto se usa para que el padding y border no afecten el tamaño del contenedor.
+
+* overflow
+
+    overflow: value;
+    hidden, scroll, auto, visible
+
+    -hidden = esconde el contenido que no cabe
+    -scroll = agrega scroll
+    -auto = agrega scroll solo si es necesario
+    -visible = muestra todo el contenido    
+
+* position
+
+    position: value;
+    relative, absolute, fixed, sticky
+
+    -relative = se mueve en relacion a su posicion original
+    -absolute = se mueve en relacion a su contenedor
+    -fixed = se mueve en relacion a la ventana
+    -sticky = se mueve en relacion a su contenedor y se queda fijo
+
+* z-index
+
+    z-index: value;
+    Se usa para definir que elemento esta por encima de otro.
+
+* transform
+
+    transform: value;
+    rotate(45deg), scale(1.5), translate(50px, 100px), skew(10deg, 20deg)
+
+    -rotate = rota el elemento
+    -scale = escala el elemento
+    -translate = mueve el elemento
+    -skew = inclina el elemento
+
+* transition
+
+    transition: value;
+    Se usa para hacer una transicion suave entre los cambios.
+
+    -transition: all 2s; (todos los cambios)
+    -transition: opacity 2s; (solo la opacidad) opacity significa transparencia.
+    -transition: transform 2s; (solo la transformacion)
+
+    transition-timing-function: value;
+    ease, linear, ease-in, ease-out, ease-in-out
+
+    -ease = empieza lento y termina rapido
+    -linear = va a la misma velocidad
+    -ease-in = empieza lento
+    -ease-out = termina lento
+    -ease-in-out = empieza y termina lento
+
+* animation
+
+    animation: value;
+    name, duration, timing-function, delay, iteration-count, direction, fill-mode, play-state
+
+    -name = nombre de la animacion
+    -duration = duracion de la animacion
+    -timing-function = velocidad de la animacion
+    -delay = tiempo antes de que empiece la animacion
+    -iteration-count = numero de veces que se repite
+    -direction = hacia donde va la animacion
+    -fill-mode = que pasa cuando la animacion termina
+    -play-state = si la animacion esta en pausa o no
+
+    @keyframes name {
+        from {
+            properties
+        }
+        to {
+            properties
+        }
+    }
+
+    -from = estado inicial
+    -to = estado final
+    -Se usa para crear una animacion.
+
+    @keyframes name {
+        0% {
+            properties
+        }
+        50% {
+            properties
+        }
+        100% {
+            properties
+        }
+    }
+
+    NOTES: para mas detalles ver folder de animation.
+
+* @media
+
+    @media (max-width: 600px) {
+        properties
+    }
+
+    -max-width = maximo ancho de la pantalla
+    -min-width = minimo ancho de la pantalla
+    -max-height = maximo alto de la pantalla
+    -min-height = minimo alto de la pantalla
+
+    -Se usa para hacer que el contenido se adapte a la pantalla.
+
+* @supports
+
+    @supports (display: grid) {
+        properties
+    }
+
+    -Se usa para verificar si el navegador soporta cierta propiedad.
+
+
 
 
 

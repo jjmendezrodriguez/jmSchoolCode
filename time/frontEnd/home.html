@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
     <link rel="stylesheet" href="/time/frontEnd/style.css">
-    <script type="text/javascript" src="/time/frontEnd/script.js" defer></script>
-    
 </head>
 <body>
     <header>
@@ -20,54 +18,71 @@
             </nav>
         </div>
     </header>
-    <section>
+    <section class="practica">
+        <section>
         <div class="home-inf">
             <h1>Pagina principal</h1>
-            <dialog>
-                <input type="text" placeholder="Enter your name">
-            <button onclick=closetest()>close</button>
+            <dialog class="pop-name">
+                <fieldset>
+                    <legend class="leg-name">
+                        <button class="pop-btn" onclick=closetest()><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="undefined"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></button>
+                    </legend>
+                    <div id="alert-1">
+                        <p id="alert-msg"></p>
+                    </div>
+                <input type="text" placeholder="Enter your name" class="name-input">
+                <button type="submit" class="name-btn" onclick=test()>Enter</button>
+                </fieldset>    
             </dialog>
             <button onclick=opentest()>Start</button>
         </div>
     </section>
-    <section>
-        <details>
-            <summary>test</summary>
-            <p>Esto es una prueba del dropdown</p>
-            <input type="text" placeholder="Enter your name">
-            <button type="submit">Enter</button>
-        </details>
-    </section>
-    <section>
-            <h1>Cronómetro</h1>
-        <time id="cronometro">00:00:00</time>
-        <br>
-            <button onclick="startCronometro()">Iniciar</button>
-            <button onclick="pauseCronometro()">Pausar</button>
-            <button onclick="resetCronometro()">Reiniciar</button>
-    </section>
-    <section>
-            <h1>Countdown</h1>
-    <time id="countdown">00:00:00</time>
-    <br>
-        <button onclick="showDialog()">Asignar tiempo</button>
-        <button onclick="startCountdown()">Iniciar</button>
-        <button onclick="pauseCountdown()">Pausar</button>
-        <button onclick="resetCountdown()">Reiniciar</button>
-
-    <!-- Dialog para asignar tiempo -->
-    <dialog id="timeDialog">
-        <h3>Asignar tiempo inicial</h3>
-        <label for="minutes">Minutos:</label>
-        <input type="number" id="minutes" min="0" value="0">
-        <label for="seconds">Segundos:</label>
-        <input type="number" id="seconds" min="0" value="0">
-        <button onclick="setInitialTime()">Aceptar</button>
-        <button onclick="closeDialog()">Cancelar</button>
-    </dialog>
-    </section>
-    <!-- Formulario Sing Up -->
-    <section class="singup-section">
+        <section>
+            <details>
+                <summary>
+                    <svg class="tel" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="undefined"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/></svg>
+                    Telefono</summary>
+                    <div class="dropdown">
+                        <p>Esto es una prueba del dropdown</p>
+                        <input class="dropdown-input" type="text" placeholder="Enter your name">
+                        <button type="submit">Enter</button>
+                    </div>
+                </details>
+            </section>
+            <section>
+                <h1>Cronómetro</h1>
+                <time id="cronometro">00:00:00</time>
+                <br>
+                <button onclick="startCronometro()">Iniciar</button>
+                <button onclick="pauseCronometro()">Pausar</button>
+                <button onclick="resetCronometro()">Reiniciar</button>
+            </section>
+            <section>
+                <h1>Countdown</h1>
+                <time id="countdown">00:00:00</time>
+                <br>
+                <button onclick="showDialog()">Asignar tiempo</button>
+                <button onclick="startCountdown()">Iniciar</button>
+                <button onclick="pauseCountdown()">Pausar</button>
+                <button onclick="resetCountdown()">Reiniciar</button>
+                
+                <!-- Dialog para asignar tiempo -->
+                <dialog id="timeDialog">
+                    <h3>Asignar tiempo inicial</h3>
+                    <label for="minutes">Minutos:</label>
+                    <input type="number" id="minutes" min="0" value="0">
+                    <label for="seconds">Segundos:</label>
+                    <input type="number" id="seconds" min="0" value="0">
+                    <button onclick="setInitialTime()">Aceptar</button>
+                    <button onclick="closeDialog()">Cancelar</button>
+                </dialog>
+            </section>
+            <section>
+                <h1 id="name-el">Hola: </h1>
+            </section>
+        </section>
+            <!-- Formulario Sing Up -->
+            <section id="singup-section">
         <div class="container-singup">
             <h1 class="title-singup">Sing up</h1> 
             <form action="/signup" method="POST" class="signup-form">
@@ -152,7 +167,7 @@
         </div>
     </section>
     <!-- Sing In -->
-     <section class="singin-section">
+     <section id="singin-section">
         <div class="container-singin">
             <h1 class="title-singin">Sing In</h1> 
             <form action="/signup" method="POST" class="signup-form">
@@ -163,7 +178,7 @@
                         <label for="email">
                             <svg xmlns="http://www.w3.org/2000/svg" height="1.8rem" viewBox="0 -960 960 960" width="1.8rem" fill="undefined"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280 320-200v-80L480-520 160-720v80l320 200Z"/></svg>
                         </label>
-                        <input type="email" id="email" name="email" placeholder="correo@ejemplo.com">
+                        <input type="email" id="email-in" name="email" placeholder="correo@ejemplo.com">
                     </div>
                 </div>
             <!-- Contraseña -->
@@ -173,7 +188,7 @@
                     <label for="password">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1.8rem" viewBox="0 -960 960 960" width="1.8rem" fill="undefined"><path d="M280-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 120q-100 0-170-70T40-480q0-100 70-170t170-70q81 0 141.5 46T506-560h335l79 79-140 160-100-79-80 80-80-80h-14q-25 72-87 116t-139 44Z"/></svg>
                     </label>
-                <input type="password" id="password" name="password" minlength="8"
+                <input type="password" id="password-in" name="password" minlength="8"
                     placeholder="Mínimo 8 caracteres">
                 </div>
             </div>
@@ -185,5 +200,6 @@
             <p class="singup-option">You don't have an account? <a onclick=showSingup() class="link-singup">Sing up</a></p>
         </div>
      </section>
+     <script type="text/javascript" src="/time/frontEnd/script.js" defer></script>
 </body>
 </html>

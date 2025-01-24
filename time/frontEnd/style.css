@@ -99,6 +99,7 @@ textarea:not([rows]) {
   --icon-color: #a7cce7;
   --input-color: white;
   --text-style: nunito;
+  --alert-color: #ff0000;
 }
 
 @font-face {
@@ -109,7 +110,6 @@ textarea:not([rows]) {
 html {
   font-family: var(--text-style);
   font-size: 16px;
-  text-align: center;
   color: var(--text-color);
   background-color: var(--background-color);
   touch-action: manipulation;
@@ -182,9 +182,129 @@ body {
   border: 2px solid red;
 }
 
+.practica {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Start */
+
+.pop-name {
+  border: none;
+}
+
+dialog {
+  padding: 0;
+  border: none;
+  border-radius: 1em;
+}
+
+fieldset {
+  text-align: center;
+  margin: 0.4em 0 0.4em 0;
+  padding: 0;
+  border: none;
+  width: 250px;
+}
+
+legend {
+  text-align: right;
+  overflow: hidden;
+}
+
+.name-input {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+#alert-1 {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--alert-color);
+  margin: 0 0 1em 0;
+  transition: 5s ease;
+}
+
+.name-btn {
+  margin: 0.8em 0 1em 0;
+  border: 1px solid gray;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  background: none;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  box-sizing: border-box;
+  font-weight: 700;
+}
+
+.name-btn:hover {
+  border: none;
+  padding: 0.6em 1.1em;
+  letter-spacing: 3px;
+  background-color: hsl(120deg 70% 40%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(50 168 82) 0px 7px 29px 0px;
+}
+
+.name-btn:active {
+  letter-spacing: 3px;
+  background-color: hsl(120deg 70% 35%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(50 168 82) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 300ms;
+}
+
+.name-btn.invalid {
+  border: none;
+  background-color: hsl(0deg 80% 50%); /* Rojo agresivo */
+}
+
+.name-btn.invalid:hover {
+  border: none;
+  padding: 0.6em 1.1em;
+  letter-spacing: 3px;
+  background-color: hsl(0, 90%, 55%);
+  color: hsl(0deg 80% 40%);
+  box-shadow: rgb(255 0 0) 0px 7px 29px 0px;
+}
+
+.name-btn.invalid:active {
+  letter-spacing: 3px;
+  background-color: hsl(0deg 70% 40%);
+  color: hsl(0deg 100% 95%);
+  box-shadow: rgba(128, 0, 0, 0.8) 0px 0px 0px 0px; /* Sombra roja más oscura */
+  transform: translateY(10px);
+  transition: 300ms;
+}
+
+.pop-btn {
+  color: var(--text-color);
+  background-color: var(--input-color);
+  border: none;
+  cursor: pointer;
+}
+
+.pop-btn:hover {
+  fill: red;
+  transition: transform 900ms ease;
+  transform: rotate(-65deg);
+}
+
 /* sing in */
 
-.singin-section {
+#singin-section {
   display: none;
   justify-content: center;
   align-items: center;
@@ -250,7 +370,7 @@ body {
 
 /* sing up */
 
-.singup-section {
+#singup-section {
   display: none;
   justify-content: center;
   align-items: center;
@@ -335,6 +455,39 @@ textarea:focus {
   font-weight: 700;
   color: var(--icon-color);
   cursor: pointer;
+}
+
+.dropdown {
+  overflow: auto;
+  transition: height 10s ease-in-out;
+  height: calc-size(auto);
+}
+
+.dropdown {
+  height: calc-size(auto);
+}
+
+details summary {
+  border: 1px solid var(--icon-color);
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.1rem;
+  margin: 1em 0 0 0;
+  list-style: none;
+  cursor: pointer;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+.tel {
+  transition: transform 900ms ease;
+}
+
+details[open] .tel {
+  margin: 5px;
+  transform: rotate(135deg);
 }
 
 @media (max-width: 1100px) {
