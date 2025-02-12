@@ -81,6 +81,15 @@ toma en cuenta este detalle.
         transform: scale(1.1); funciona cuando hace click. 
     }
 
+* input styles:
+
+    ::placeholder para estilizar el placeholder.
+    :focus para estilizar el input cuando se hace click.
+    :valid para estilizar el input cuando es valido.
+    :invalid para estilizar el input cuando es invalido.
+
+    outline: none; para quitar el borde azul cuando se hace click.
+
     button {
     touch-action: manipulation; /* Mejora la velocidad de respuesta al clic */
     }

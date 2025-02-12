@@ -8,29 +8,33 @@
     <title>Blackjack</title>
 </head>
 <body>
-    <section class="main-menu">
+    <section id="main-menu">
             <h1>The Blackjack Game</h1>
-            <p id="message-el">Want to play a round?<br>
-                Press Start Game!</p>
-            <button onclick="game()">START GAME</button>
+            <p id="welcome-msg">Want to play a round?</p>
+            <p id="alert-one">Please Enter Your Name!</p>
+            <input type="text" id="player-input" placeholder="Click & Enter your Name">
+            <button id="start-game" type="submit">START GAME</button>
     </section>
     <div class="game-container">
-    <h1>Blackjack</h1>
-        <p id="cards-el">Cards:</p>
-        <p id="sum-el">Sum:</p>
-        <p id="bet-el">Bet: 0</p>
-        <div>
-        <button onclick="startPlay()">START GAME</button>
-        <button onclick="newGame()">NEW GAME</button>
-        </div>
-        <div>
-        <button onclick="bet()">BET</button>
-        <button onclick="newCard()">NEW CARD</button>
-        <button onclick="stay()">STAY</button>
-        </div>
-        <button onclick="startOver()">START OVER</button>
-        <h2 id="player-el"></h2>
-        <button onclick="quit()">QUIT GAME</button>
+        <h1>Blackjack</h1>
+        <p id="message-el">Want to play a round?</p>
+            <p id="cards-el">Cards:</p>
+            <p id="sum-el">Sum:</p>
+            <p id="bet-el">Bet: 0</p>
+            <div>
+            <button onclick="startPlay()">START PLAY</button>
+            <button onclick="newGame()">NEW GAME</button>
+            </div>
+            <div>
+            <button onclick="bet()">BET</button>
+            <button onclick="newCard()">NEW CARD</button>
+            <button onclick="stay()">STAY</button>
+            </div>
+            <button onclick="startOver()">START OVER</button>
+            <div id="player-el">
+                <h3>Name: </h3>
+            </div>
+            <button onclick="quit()">QUIT GAME</button>
     </div>
     <script src="/javaScript/level_2_update/index.js" defer></script>
 </body>

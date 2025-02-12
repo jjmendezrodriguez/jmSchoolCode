@@ -1,4 +1,7 @@
 /* Complete the CSS styling according to the provided design */
+:root {
+  --input-color: rgb(63, 150, 37);
+}
 
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -10,7 +13,9 @@ body {
   font-weight: bold;
 }
 
-.main-menu {
+/* main menu section */
+
+#main-menu {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,8 +23,78 @@ body {
   height: 100vh;
 }
 
+#main-menu.deactive {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+/* name input */
+
+#player-input {
+  outline: none;
+  background-color: transparent;
+  text-align: center;
+  justify-content: center;
+  margin: 10px;
+  border-radius: 0.5em;
+  padding: 0.7em;
+  font-size: 1rem;
+  text-transform: capitalize;
+  transition: 1s ease, outline 1s ease;
+}
+
+#player-input:hover {
+  transition: linear 1.25s;
+  outline: 1px solid white;
+}
+
+#player-input:focus {
+  background-color: var(--input-color);
+  border: none;
+  outline: 1px solid white;
+  transition: 1s ease;
+}
+
+#player-input::placeholder {
+  color: white;
+  font-weight: bold;
+}
+
+#player-input:focus::placeholder {
+  color: var(--input-color);
+}
+
+/* para que el color del input sea el mismo que el color de fondo */
+#player-input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px var(--input-color) inset !important;
+}
+
+/* alerta 1 oculta */
+
+#alert-one {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  font-size: 1rem;
+  color: red;
+  text-shadow: 0 0 2px black;
+  margin: 0.25em;
+  transition: opacity 0.5s ease, visibility 0.5s ease; /* transición de 0.5s cunaod se oclta */
+}
+
+/* alerta 1 mostrada */
+#alert-one.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  transition: opacity 0.5s ease, visibility 0.5s ease; /* transición de 0.5s cunaod se muestre */
+}
+
+/* game section */
+
 .game-container {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -30,6 +105,7 @@ body {
 
 h1 {
   color: goldenrod;
+  margin: 0.25em;
 }
 
 button {
@@ -39,8 +115,7 @@ button {
   border-radius: 5px;
   font-weight: bold;
   border: none;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 1em 2em;
   margin: 8px;
 }
 
@@ -60,4 +135,5 @@ button:active {
 #player-el {
   text-align: center;
   margin: 10px;
+  text-transform: capitalize;
 }

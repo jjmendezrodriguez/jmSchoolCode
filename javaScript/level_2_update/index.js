@@ -17,7 +17,31 @@ let sumEL = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
 let betEl = document.getElementById("bet-el");
 let playerEl = document.getElementById("player-el");
-playerEl.textContent = player.name + "" + player.chips;
+
+const startGame = document.getElementById("start-game");
+const mainMenu = document.getElementById("main-menu");
+const gameStart = document.querySelector(".game-container");
+const alertOne = document.getElementById("alert-one");
+let nameInput = document.getElementById("player-input");
+
+startGame.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (nameInput.value.trim() === "") {
+    alertOne.classList.add("active");
+  } else {
+    player.name = nameInput.value.trim();
+    playerEl.textContent = `name: ${player.name} Chips: $${player.chips}`;
+    mainMenu.classList.add("deactive");
+    console.log(player);
+  }
+});
+
+nameInput.addEventListener("input", () => {
+  if (nameInput.value.trim().length > 0) {
+    // trim() elimina los espacios en blanco
+    alertOne.classList.remove("active"); // Remover rojo si el campo es válido
+  }
+});
 
 function getRamdomCard() {
   let randomNumber = Math.floor(Math.random() * 13) + 1; // guardamos el valor de Math.random() en una variable
@@ -31,33 +55,24 @@ function getRamdomCard() {
   return randomNumber; // por ser una variable let y local, podemos usarla en cualquier parte de la funcion.
 }
 
-const startGame = document.querySelector(".main-menu");
-const gameStart = document.querySelector(".game-container");
-
-function game() {
-  (startGame.style.display = "none"), (gameStart.style.display = "block");
-}
+function start() {}
 
 function quit() {
   isAlive = false;
-  (startGame.style.display = "flex"), (gameStart.style.display = "none");
+  Object.assign(player, { name: "", chips: 0, lastTen: false });
+  nameInput.value = "";
+  mainMenu.classList.remove("deactive");
+  console.log(player);
 }
 
 function startPlay() {
   isAlive = true; // Para que el juego inicie debe ser true.
-  if (!player.name || player.name.length === 0) {
-    player.name = prompt("What's your name?");
-    while (player.name.length === 0) {
-      alert("Please enter your name!");
-      player.name = prompt("What's your name?");
-    }
-    console.log("voy por aqui");
-    if (player.chips < 10) {
-      while (player.chips < 10) {
-        alert("You need at least $10 to play!");
-        player.chips = prompt("How many chips do you want to add?");
-        playerEl.textContent = player.name.toUpperCase() + ": $" + player.chips;
-      }
+  console.log("voy por aqui");
+  if (player.chips < 10) {
+    while (player.chips < 10) {
+      alert("You need at least $10 to play!");
+      player.chips = prompt("How many chips do you want to add?");
+      playerEl.textContent = player.name.toUpperCase() + ": $" + player.chips;
     }
   }
   if (cards > 0) {
