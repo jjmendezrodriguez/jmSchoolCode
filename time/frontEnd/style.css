@@ -498,3 +498,21 @@ details[open] .tel {
     ); /* esto se usa para que el contenedor no sea mayor a 400px ni al 100% */
   }
 }
+
+#skora-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0.4em 0;
+  border: 4px solid black;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: black;
+  color: white;
+}
+
+#skora-title:hover {
+  background-color: white;
+  color: black;
+  scale: 1.1;
+}
