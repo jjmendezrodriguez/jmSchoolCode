@@ -180,6 +180,8 @@ toma en cuenta este detalle.
     text-transform: value;
     Para letra mayuscula.
 
+* text-transform: uppercase; (mayuscula)
+
 * letter-spacing
 
     syntax:
@@ -193,8 +195,6 @@ toma en cuenta este detalle.
 
     word-spacing: 2px;
     Se usa para separar las palabras.
-
-* text-transform: uppercase; (mayuscula)
 
 * transition
 
