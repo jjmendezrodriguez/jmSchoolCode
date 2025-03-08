@@ -12,30 +12,45 @@
             <h1>The Blackjack Game</h1>
             <p id="welcome-msg">Want to play a round?</p>
             <p id="alert-one">Please Enter Your Name!</p>
-            <input type="text" id="player-input" placeholder="Click & Enter your Name">
-            <button id="start-game" type="submit">START GAME</button>
+            <input type="text" id="player-input" placeholder="Enter your Name">
+            <button id="start-game" type="button">START GAME</button>
     </section>
-    <div class="game-container">
-        <h1>Blackjack</h1>
-        <p id="message-el">Want to play a round?</p>
-            <p id="cards-el">Cards:</p>
-            <p id="sum-el">Sum:</p>
-            <p id="bet-el">Bet: 0</p>
-            <div>
-            <button onclick="startPlay()">START PLAY</button>
-            <button onclick="newGame()">NEW GAME</button>
+
+        <div class="game-container">
+            <h1>Blackjack</h1>
+                <p id="message-el">Want to play a round?</p>
+            <div id="table-container">
+                <div id="player-card">
+                    <h2 class="title">Player</h2>
+                    <p id="cards-el">Cards:</p>
+                    <p id="sum-el">Sum:</p>
+                </div>
+                <div id="dealer-card">
+                    <h2 class="title">dealer</h2>
+                    <p id="dealer-cards">Cards:</p>
+                    <p id="dealer-sum">Sum:</p>
+                </div>
+            </div>
+                <p id="bet-el">Bet: $</p>
+                <p id="alert-msg">Alert msg</p>
+            <div id="main-btns">
+                <button id="start-play">PLAY</button>
+                <button id="new-card">NEW CARD</button>
+                <button onclick="stay()">STAY</button>
             </div>
             <div>
-            <button onclick="bet()">BET</button>
-            <button onclick="newCard()">NEW CARD</button>
-            <button onclick="stay()">STAY</button>
+                <button id="bet-btn">BET</button>
+                <button id="chips-btn">ADD CHIPS</button>
             </div>
-            <button onclick="startOver()">START OVER</button>
             <div id="player-el">
-                <h3>Name: </h3>
+                <h3 id="player-name"></h3>
+                <h4 id="player-chips"></h4>
             </div>
-            <button onclick="quit()">QUIT GAME</button>
-    </div>
+            <div>
+                <button id="new-game">NEW Game</button>
+                <button id="quit-btn">QUIT GAME</button>
+            </div>
+        </div>
     <script src="/javaScript/level_2_update/index.js" defer></script>
 </body>
 </html>

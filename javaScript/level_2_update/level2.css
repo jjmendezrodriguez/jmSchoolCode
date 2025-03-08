@@ -8,9 +8,9 @@ body {
     "Lucida Sans", Arial, sans-serif;
   background-color: #016f32;
   background-size: cover; /* para que cubra toda la pantalla */
-  text-align: center;
   color: white;
   font-weight: bold;
+  margin: 0 auto;
 }
 
 /* main menu section */
@@ -32,6 +32,8 @@ body {
 /* name input */
 
 #player-input {
+  opacity: 0;
+  visibility: hidden;
   outline: none;
   background-color: transparent;
   text-align: center;
@@ -41,6 +43,12 @@ body {
   padding: 0.7em;
   font-size: 1rem;
   text-transform: capitalize;
+  transition: 1s ease, outline 1s ease;
+}
+
+#player-input.active {
+  opacity: 1;
+  visibility: visible;
   transition: 1s ease, outline 1s ease;
 }
 
@@ -103,6 +111,59 @@ body {
   padding: 10px;
 }
 
+#table-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: start;
+  width: 425px;
+  height: 220px;
+  border: 5px solid black;
+  border-radius: 20px;
+}
+
+#player-card,
+#dealer-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+  width: 150px;
+  text-transform: capitalize;
+  /* border: 2px solid white; */
+}
+
+.title {
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+/* #cards-el,
+#sum-el,
+#dealer-cards,
+#dealer-sum {} */
+
+/* alerta 2 oculta */
+
+#alert-msg {
+  opacity: 0;
+  visibility: hidden;
+  position: relative;
+  font-size: 1rem;
+  color: red;
+  text-shadow: 0 0 2px black;
+  text-transform: capitalize;
+  margin: 0.25em;
+  transition: opacity 0.5s ease, visibility 0.5s ease; /* transición de 0.5s cunaod se oclta */
+}
+
+/* alerta 2 mostrada */
+#alert-msg.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease; /* transición de 0.5s cunaod se muestre */
+}
+
 h1 {
   color: goldenrod;
   margin: 0.25em;
@@ -117,6 +178,7 @@ button {
   border: none;
   padding: 1em 2em;
   margin: 8px;
+  text-transform: uppercase;
 }
 
 button:hover {
@@ -136,4 +198,24 @@ button:active {
   text-align: center;
   margin: 10px;
   text-transform: capitalize;
+}
+
+@media (max-width: 530px) {
+  #main-btns {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 450px) {
+  #table-container {
+    width: 300px;
+    height: 180px;
+  }
+
+  #player-card,
+  #dealer-card {
+    width: 120px;
+  }
 }
