@@ -13,18 +13,20 @@
             <p id="welcome-msg">Want to play a round?</p>
             <p id="alert-one">Please Enter Your Name!</p>
             <input type="text" id="player-input" placeholder="Enter your Name">
-            <button id="start-game" type="button">START GAME</button>
+            <button id="start-game" type="button" >START GAME</button>
     </section>
 
         <div class="game-container">
             <h1>Blackjack</h1>
                 <p id="message-el">Want to play a round?</p>
             <div id="table-container">
+                <!-- Player -->
                 <div id="player-card">
                     <h2 class="title">Player</h2>
                     <p id="cards-el">Cards:</p>
                     <p id="sum-el">Sum:</p>
                 </div>
+                <!-- Dealer -->
                 <div id="dealer-card">
                     <h2 class="title">dealer</h2>
                     <p id="dealer-cards">Cards:</p>
@@ -33,12 +35,14 @@
             </div>
                 <p id="bet-el">Bet: $</p>
                 <p id="alert-msg">Alert msg</p>
-            <div id="main-btns">
+            <div class="main-btns">
+                <dialog id="set-card">
+                    <button id="add-one" type="button">1</button>
+                    <button id="add-eleven" type="button">11</button>
+                </dialog>
                 <button id="start-play">PLAY</button>
                 <button id="new-card">NEW CARD</button>
-                <button onclick="stay()">STAY</button>
-            </div>
-            <div>
+                <button id="dealer">STAY</button>
                 <button id="bet-btn">BET</button>
                 <button id="chips-btn">ADD CHIPS</button>
             </div>
@@ -46,12 +50,12 @@
                 <h3 id="player-name"></h3>
                 <h4 id="player-chips"></h4>
             </div>
-            <div>
+            <div class="main-btns">
                 <button id="new-game">NEW Game</button>
                 <button id="quit-btn">QUIT GAME</button>
             </div>
         </div>
-    <script src="/javaScript/level_2_update/index.js" defer></script>
+    <script type="module" src="/javaScript/level_2_update/index.js" defer></script>
 </body>
 </html>
 

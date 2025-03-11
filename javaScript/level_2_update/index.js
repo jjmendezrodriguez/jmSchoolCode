@@ -1,9 +1,16 @@
+import {
+  getCardValue,
+  getRandomCard,
+} from "/javaScript/level_2_update/cardsDeck.js";
+
+import { stayHand } from "/javaScript/level_2_update/dealer.js";
+
 let cards = []; // creamos un array
+
 let sum = 0;
 let sumBet = 0;
 let hasBlasckJack = false;
 let isAlive = false; // Para que el juego inicie debe ser true. ver funcion startGame().
-let response = ""; // Con variables empty podemos usarlas en cualquier parte del codigo.
 let message = ""; // El propocito de esta variable es para cambiar el mensaje en el HTML.
 let player = {
   name: "",
@@ -15,7 +22,6 @@ let messageEl = document.getElementById("message-el");
 let sumEL = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
 let betEl = document.getElementById("bet-el");
-let playerEl = document.getElementById("player-el");
 
 // Main menu ========================================
 
@@ -43,7 +49,7 @@ startGame.addEventListener("click", function (e) {
       playerName.textContent = `Name: ${player.name}`;
       playerChips.textContent = `Chips: $${player.chips}`;
       mainMenu.classList.add("deactive");
-      console.log(player);
+      // console.log(player);
     }
   }
 });
@@ -71,20 +77,6 @@ function showAlert(msg = "Aletr", onOff = true) {
   }
 }
 
-// Random card deck ========================================
-
-function getRamdomCard() {
-  let randomNumber = Math.floor(Math.random() * 13) + 1; // guardamos el valor de Math.random() en una variable
-  if (randomNumber > 10) {
-    // si el valor de randomNumber es mayor a 10
-    return 10;
-  } else if (randomNumber === 1) {
-    // si el valor de randomNumber es igual a 1
-    return 11;
-  }
-  return randomNumber; // por ser una variable let y local, podemos usarla en cualquier parte de la funcion.
-}
-
 // Quit game ==========================================
 
 const quitGame = document.getElementById("quit-btn");
@@ -101,30 +93,60 @@ quitGame.addEventListener("click", function () {
   // isStart = true;
   // console.log(isAlive + player + "click btn quit");
   location.reload();
+  localStorage.clear();
 });
 
 // Start play ========================================
 
-const startPlayBtn = document.getElementById("start-play");
+let inGame = false;
 
-startPlayBtn.addEventListener("click", function () {
-  if (player.chips <= 0) {
-    showAlert("Please Add Credit To Your Accound!", false);
-  } else if (isAlive === false) {
-    showAlert("click new game!", false);
-  } else {
-    isAlive = true; // Para que el juego inicie debe ser true.
-    let firsCard = getRamdomCard();
-    let secondCard = getRamdomCard();
-    cards = [firsCard, secondCard];
-    /* ^ cambiamos el valor del array con los valores de firsCard y secondCard,
-  de esta forma podemos saber que cartas se han sacado al inicio del juego. */
-    sum = firsCard + secondCard;
-    renderGame(true);
-    console.log(`${isAlive} click star play btn`);
-    // Con esta funcion iniciamos el juego con dos cartas y el valor ramdom de cada carta.
+const startPlayBtn = document
+  .getElementById("start-play")
+  .addEventListener("click", function () {
+    if (player.chips <= 0) {
+      showAlert("Please Add Credit To Your Accound!", false);
+    } else if (!isAlive) {
+      showAlert("click new game!", false);
+    } else {
+      play();
+    }
+  });
+
+async function play() {
+  if (inGame) {
+    showAlert("Game already in progress!");
+    return;
   }
-});
+
+  isAlive = true;
+  hasBlasckJack = false;
+  inGame = true; // 🔥 Ahora el juego está en progreso
+
+  let firstCard = getRandomCard();
+  let secondCard = getRandomCard();
+
+  cards = [firstCard, secondCard];
+
+  ShowCards();
+
+  let firstCardValue = await getCardValue(firstCard);
+  let secondCardValue = await getCardValue(secondCard);
+
+  sum = firstCardValue + secondCardValue;
+  sumEL.textContent = `Sum: ${sum}`;
+
+  renderGame(true);
+
+  alertMsg.classList.remove("active");
+  // console.log(`${isAlive} click start play btn`);
+}
+
+function ShowCards() {
+  cardsEl.textContent = `Cards: `;
+  for (let card of cards) {
+    cardsEl.textContent += `${card.value}${card.suit} `;
+  }
+}
 
 // chips ========================================
 
@@ -133,14 +155,22 @@ const ChipsBtn = document.getElementById("chips-btn");
 ChipsBtn.addEventListener("click", addChips);
 
 function addChips() {
-  player.chips += 10;
-  console.log(player); // para pruebas
+  player.chips += 100;
+  // console.log(player); // para pruebas
   playerChips.textContent = `Chips: $${player.chips}`;
   alertMsg.classList.remove("active");
   isAlive = true;
 }
 
-function stay() {}
+// Dealer ==========================================
+
+document.getElementById("dealer").addEventListener("click", function () {
+  if (inGame) {
+    stayHand();
+  } else {
+    showAlert("You need to start the game!");
+  }
+});
 
 // Bet ========================================
 
@@ -149,11 +179,13 @@ const betBtn = document.getElementById("bet-btn");
 betBtn.addEventListener("click", bet);
 
 function bet() {
-  console.log(`${isAlive} click bet btn`);
-  if (isAlive === false) {
+  // console.log(`${isAlive} click bet btn`);
+  if (!isAlive && hasBlasckJack === false) {
     showAlert("click new game!", false);
   } else if (player.chips <= 0) {
     showAlert("Please Add Credit To Your Accound!");
+  } else if (inGame === false) {
+    showAlert("You need to click play!");
   } else {
     sumBet += 10;
     player.chips -= 10;
@@ -164,15 +196,11 @@ function bet() {
 
 // Render game ========================================
 
-function renderGame(isNewRound = false) {
-  cardsEl.textContent = `Cards: `;
-  for (let i of cards) {
-    cardsEl.textContent += `${i} `;
-  }
+async function renderGame(isNewRound = false) {
+  ShowCards();
   sumEL.textContent = `Sum: ${sum}`;
 
   if (isNewRound) {
-    console.log(isNewRound + "new Round");
     sumBet += 10;
     player.chips -= 10;
     sumBet += 10;
@@ -180,26 +208,30 @@ function renderGame(isNewRound = false) {
     betEl.textContent = `Bet: $${sumBet}`;
   }
 
-  if (sum <= 20) {
+  if (sum < 21) {
     message = "Do you want to draw a new card?";
     isAlive = true;
-    console.log("voy por if < 20");
   } else if (sum === 21) {
     message = "Wohoo! You've got Blackjack!";
     hasBlasckJack = true;
-    player.chips += sumBet;
-    sumBet = 0;
-    playerName.textContent = `Name: ${player.name}`;
-    playerChips.textContent = `Chips: $${player.chips}`;
-    betEl.textContent = `Bet: $${sumBet}`;
-    isAlive = false;
+    youWin();
   } else {
     message = "You're out of the game!";
     isAlive = false;
+    inGame = false;
     showAlert("you lose, start new game!", false);
   }
   //Con esto cambias el texto del HTML, la linea donde coinside el id usado.
   messageEl.textContent = message;
+}
+
+export function youWin() {
+  player.chips += sumBet * 2;
+  sumBet = 0;
+  playerChips.textContent = `Chips: $${player.chips}`;
+  betEl.textContent = `Bet: $${sumBet}`;
+  isAlive = false;
+  inGame = false;
 }
 
 // New card ========================================
@@ -208,19 +240,18 @@ const newCardBtn = document.getElementById("new-card");
 
 newCardBtn.addEventListener("click", newCard);
 
-function newCard() {
-  console.log(`${isAlive} ${hasBlasckJack} new card btn`);
-  if (isAlive === false) {
-    showAlert("You need to start the game!");
-  } else if (isAlive && hasBlasckJack === false) {
-    // si isAlive es true y hasBlasckJack es false
-    let card = getRamdomCard(); // Creamos una nueva carta
-    sum += card; // sum el nuevo valor al anterior valor de sum
+async function newCard() {
+  if (!isAlive || !inGame) {
+    showAlert("You need to click play!");
+    return;
+  }
+
+  if (isAlive && hasBlasckJack === false) {
+    let card = getRandomCard(); // Creamos una nueva carta
+    let cardValue = await getCardValue(card); // Obtenemos el valor de la carta
+    sum += cardValue; // sum el nuevo valor al anterior valor de sum
     cards.push(card);
-    console.log(`${isAlive} ${hasBlasckJack} click new card btn else `);
-    renderGame(); /* Para activar la funcion startGame(). 
-    No olvidemos que cuando llamamos una funcion se ejecuta todo
-    lo que esta dentro de las llaves {}, por eso llamamos StartGame(). */
+    renderGame();
   }
 }
 
@@ -231,16 +262,20 @@ const newGameBtn = document.getElementById("new-game");
 newGameBtn.addEventListener("click", newGame);
 
 function newGame() {
-  isAlive = true;
-  hasBlasckJack = false;
-  console.log(`${isAlive} ${hasBlasckJack} click newgamebtn`);
+  if (inGame) {
+    showAlert("Game already in progress!");
+    return;
+  }
+  reset();
+  // console.log(`${isAlive} ${hasBlasckJack} click newgamebtn`);
   alertMsg.classList.remove("active");
+  showAlert("Click Play!", false);
 }
 
 function reset() {
-  newGame();
-  player.name = "";
-  player.chips = 0;
-  playerName.textContent = `Name: ${player.name}`;
-  playerChips.textContent = `Chips: $${player.chips}`;
+  isAlive = true;
+  hasBlasckJack = false;
+  cards = [];
+  cardsEl.textContent = `Cards: `;
+  sumEL.textContent = `Sum:`;
 }

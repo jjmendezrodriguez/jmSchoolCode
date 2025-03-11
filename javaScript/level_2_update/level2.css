@@ -1,4 +1,6 @@
 /* Complete the CSS styling according to the provided design */
+@import url("/javaScript/level_2_update/resetSettings.css");
+
 :root {
   --input-color: rgb(63, 150, 37);
 }
@@ -138,6 +140,10 @@ body {
   margin: 0 0 20px 0;
 }
 
+#cards-el,
+#dealer-cards {
+  height: 50px;
+}
 /* #cards-el,
 #sum-el,
 #dealer-cards,
@@ -170,13 +176,15 @@ h1 {
 }
 
 button {
+  text-align: center;
+  line-height: 1rem;
   color: #016f32;
   width: 150px;
   background-color: goldenrod;
   border-radius: 5px;
   font-weight: bold;
   border: none;
-  padding: 1em 2em;
+  padding: 1.1em 0.5em 1em 0.5em;
   margin: 8px;
   text-transform: uppercase;
 }
@@ -200,9 +208,23 @@ button:active {
   text-transform: capitalize;
 }
 
+.main-btns {
+  display: grid;
+  grid-template: 3fr / 2fr auto;
+  grid-auto-rows: auto-fill;
+  gap: 10px;
+
+  margin: 10px;
+}
+
+#add-one,
+#add-eleven {
+  width: 50px;
+}
+
 @media (max-width: 530px) {
-  #main-btns {
-    display: flex;
+  .main-btns {
+    display: grid;
     flex-direction: column;
     flex-wrap: wrap;
   }
@@ -210,8 +232,8 @@ button:active {
 
 @media (max-width: 450px) {
   #table-container {
-    width: 300px;
-    height: 180px;
+    width: 340px;
+    height: 200px;
   }
 
   #player-card,
