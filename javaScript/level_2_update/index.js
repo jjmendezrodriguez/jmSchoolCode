@@ -3,17 +3,11 @@ import {
   getRandomCard,
 } from "/javaScript/level_2_update/cardsDeck.js";
 
-import {
-  stayHand,
-  dealerEl,
-  dealerSumEl,
-} from "/javaScript/level_2_update/dealer.js";
-
 let cards = []; // creamos un array
 
 let sum = 0;
 let sumBet = 0;
-let hasBlasckJack = false;
+let hasBlackJack = false;
 let isAlive = false; // Para que el juego inicie debe ser true. ver funcion startGame().
 let message = ""; // El propocito de esta variable es para cambiar el mensaje en el HTML.
 let player = {
@@ -123,7 +117,7 @@ async function play() {
   }
 
   isAlive = true;
-  hasBlasckJack = false;
+  hasBlackJack = false;
   inGame = true; // 🔥 Ahora el juego está en progreso
 
   let firstCard = getRandomCard();
@@ -184,7 +178,7 @@ betBtn.addEventListener("click", bet);
 
 function bet() {
   // console.log(`${isAlive} click bet btn`);
-  if (!isAlive && hasBlasckJack === false) {
+  if (!isAlive && hasBlackJack === false) {
     showAlert("click new game!", false);
   } else if (player.chips <= 0) {
     showAlert("Please Add Credit To Your Accound!");
@@ -217,7 +211,7 @@ async function renderGame(isNewRound = false) {
     isAlive = true;
   } else if (sum === 21) {
     message = "Wohoo! You've got Blackjack!";
-    hasBlasckJack = true;
+    hasBlackJack = true;
     youWin();
   } else {
     message = "You're out of the game!";
@@ -250,7 +244,7 @@ async function newCard() {
     return;
   }
 
-  if (isAlive && hasBlasckJack === false) {
+  if (isAlive && hasBlackJack === false) {
     let card = getRandomCard(); // Creamos una nueva carta
     let cardValue = await getCardValue(card); // Obtenemos el valor de la carta
     sum += cardValue; // sum el nuevo valor al anterior valor de sum
@@ -271,20 +265,120 @@ function newGame() {
     return;
   }
   reset();
-  // console.log(`${isAlive} ${hasBlasckJack} click newgamebtn`);
+  // console.log(`${isAlive} ${hasBlackJack} click newgamebtn`);
   alertMsg.classList.remove("active");
   showAlert("Click Play!", false);
 }
 
 function reset() {
   isAlive = true;
-  hasBlasckJack = false;
+  hasBlackJack = false;
   cards = [];
   cardsEl.textContent = `Cards: `;
   playerSum.textContent = `Sum: `;
   dealerEl.textContent = `Cards: `;
   dealerSumEl.textContent = `Sum: `;
-  betEl.textContent = `Bet: $${sumBet}`;
+  betEl.textContent = `Bet: $0`;
 }
 
-export { youWin, playerSum, betEl, isAlive, showAlert };
+// Dealer ===============================================
+
+// Variables del dealer
+
+let dealerCards = [];
+let dealerSumCards = 0;
+
+// Elementos del DOM
+
+const dealerEl = document.getElementById("dealer-cards"); // Donde se muestran las cartas
+const dealerSumEl = document.getElementById("dealer-sum"); // Donde se muestra la suma del dealer
+
+// Obtiene el valor de la carta, el As se ajusta dinámicamente ========================
+
+// function getDealerCardValue(card, currentSum) {
+//   if (card.value === "A") {
+//     return currentSum + 11 > 21 ? 1 : 11;
+//   }
+//   if (["J", "Q", "K"].includes(card.value)) return 10;
+//   return parseInt(card.value);
+// }
+
+//  Función que inicia la mano del dealer ===========================================
+
+export function stayHand() {
+  // isDealer = true;
+  inGame = true;
+  hasBlackJack = false;
+
+  // Dealer recibe dos cartas
+  let firstCard = getRandomCard();
+  let secondCard = getRandomCard();
+
+  dealerCards = [firstCard, secondCard];
+
+  // Calcular suma correctamente
+  let firstCardValue = getCardValue(firstCard, 0);
+  let secondCardValue = getCardValue(secondCard, firstCardValue);
+  dealerSumCards = firstCardValue + secondCardValue;
+
+  // Mostrar las cartas del dealer
+  showDealerCards();
+
+  // Renderizar juego
+  renderDGame();
+
+  setIsDealer();
+}
+
+export function setIsDealer() {
+  return {
+    isDealer: true,
+  };
+}
+console.log(setIsDealer());
+
+// Muestra las cartas del dealer en pantalla ========================================
+
+function showDealerCards() {
+  dealerEl.textContent = `Cards: ${dealerCards
+    .map((card) => `${card.value}${card.suit}`)
+    .join(" ")}`;
+}
+
+// Actualiza el estado del dealer y decide si debe tomar otra carta.
+
+function renderDGame() {
+  dealerSumEl.textContent = `Sum: ${dealerSumCards}`;
+  const playerSumEl = Number(playerSum.textContent.split(" ")[1]);
+
+  if (dealerSumCards < 21) {
+    let newCard = getRandomCard();
+    dealerCards.push(newCard);
+    dealerSumCards += getCardValue(newCard, dealerSumCards);
+    showDealerCards();
+    renderDGame(); // Llamada recursiva hasta que el dealer tenga igual o más que el jugador
+  }
+
+  if (dealerSumCards > 21) {
+    console.log("Dealer Bust! Dealer pierde.");
+    youWin();
+    betEl.textContent = `Bet: $ `;
+  } else if (dealerSumCards === playerSum) {
+    showAlert("Empate!", false);
+    inGame = false;
+    betEl.textContent = `Bet: $0`;
+    player.chips += 10;
+    playerChips.textContent = `Chips: $${player.chips}`;
+  } else if (dealerSumCards > playerSumEl) {
+    showAlert("Dealer tiene mejor mano, gano!", false);
+    betEl.textContent = `Bet: $0`;
+    isAlive = false;
+    inGame = false;
+    console.log(`${isAlive}`);
+  } else if (dealerSumCards === 21) {
+    console.log("Dealer tiene Blackjack!");
+    hasBlackJack = true;
+    showAlert("Dealer tiene Blackjack, gano!", false);
+    betEl.textContent = `Bet: $ `;
+  }
+}

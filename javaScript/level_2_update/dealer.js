@@ -75,7 +75,7 @@ function renderDGame() {
     renderDGame(); // Llamada recursiva hasta que el dealer tenga igual o más que el jugador
   } else {
     showAlert("Dealer tiene mejor mano, gano!", false);
-    betEl.textContent = `Bet: $ `;
+    betEl.textContent = `Bet: $0`;
     isAlive = false;
     inGame = false;
     console.log(`${isAlive}`);
@@ -98,6 +98,3 @@ function renderDGame() {
     betEl.textContent = `Bet: $ `;
   }
 }
-
-// Exportar función si es necesario
-export { stayHand, dealerEl, dealerSumEl };

@@ -1,4 +1,5 @@
 // Random card deck ========================================
+import { setIsDealer } from "./index.js";
 
 const cardsDeck = [
   { value: "A", suit: "♠️" },
@@ -61,8 +62,18 @@ const cardsDeck = [
 const addOne = document.getElementById("add-one");
 const addEleven = document.getElementById("add-eleven");
 const dialog = document.getElementById("set-card");
+const { isDealer, notDealer } = setIsDealer;
 
 function getCardValue(card) {
+  console.log(isDealer);
+  if (isDealer) {
+    if (card.value === "A") {
+      return currentSum + 11 > 21 ? 1 : 11;
+    }
+    if (["J", "Q", "K"].includes(card.value)) return 10;
+    return parseInt(card.value);
+  }
+
   if (card.value === "A") {
     return new Promise((resolve) => {
       dialog.showModal(); // Abre el diálogo
