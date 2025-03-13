@@ -1,15 +1,15 @@
 import { getRandomCard } from "./cardsDeck.js";
-import { youWin } from "./index.js";
+import { youWin, playerSum, showAlert, betEl, isAlive } from "./index.js";
 
 // Variables del dealer
 let dealerCards = [];
-let dealerSum = 0;
+let dealerSumCards = 0;
 let hasBlackJack = false;
 let inGame = false;
 
 // Elementos del DOM
 const dealerEl = document.getElementById("dealer-cards"); // Donde se muestran las cartas
-const sumEl = document.getElementById("dealer-sum"); // Donde se muestra la suma del dealer
+const dealerSumEl = document.getElementById("dealer-sum"); // Donde se muestra la suma del dealer
 
 /**
  * Obtiene el valor de la carta, el As se ajusta dinámicamente.
@@ -40,7 +40,7 @@ function stayHand() {
   // Calcular suma correctamente
   let firstCardValue = getCardValue(firstCard, 0);
   let secondCardValue = getCardValue(secondCard, firstCardValue);
-  dealerSum = firstCardValue + secondCardValue;
+  dealerSumCards = firstCardValue + secondCardValue;
 
   // Mostrar las cartas del dealer
   showDealerCards();
@@ -64,28 +64,40 @@ function showDealerCards() {
  */
 
 function renderDGame() {
-  sumEl.textContent = `Sum: ${dealerSum}`;
+  dealerSumEl.textContent = `Sum: ${dealerSumCards}`;
+  const playerSumEl = Number(playerSum.textContent.split(" ")[1]);
 
-  if (dealerSum < 21) {
-    // El dealer toma otra carta si tiene menos de 17
+  if (dealerSumCards < playerSumEl) {
     let newCard = getRandomCard();
     dealerCards.push(newCard);
-    dealerSum += getCardValue(newCard, dealerSum);
+    dealerSumCards += getCardValue(newCard, dealerSumCards);
     showDealerCards();
-    renderDGame(); // Llamada recursiva hasta que el dealer tenga 17 o más
+    renderDGame(); // Llamada recursiva hasta que el dealer tenga igual o más que el jugador
+  } else {
+    showAlert("Dealer tiene mejor mano, gano!", false);
+    betEl.textContent = `Bet: $ `;
+    isAlive = false;
+    inGame = false;
+    console.log(`${isAlive}`);
+  }
+
+  if (dealerSumCards === playerSum) {
+    showAlert("Empate!", false);
+    inGame = false;
   }
 
   // Verificar estado final del dealer
-  if (dealerSum > 21) {
+  if (dealerSumCards > 21) {
     console.log("Dealer Bust! Dealer pierde.");
     youWin();
-  } else if (dealerSum === 21) {
+    betEl.textContent = `Bet: $ `;
+  } else if (dealerSumCards === 21) {
     console.log("Dealer tiene Blackjack!");
     hasBlackJack = true;
-  } else {
-    console.log(`Dealer se queda con ${dealerSum}`);
+    showAlert("Dealer tiene Blackjack, gano!", false);
+    betEl.textContent = `Bet: $ `;
   }
 }
 
 // Exportar función si es necesario
-export { stayHand };
+export { stayHand, dealerEl, dealerSumEl };

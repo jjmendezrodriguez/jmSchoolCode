@@ -8,11 +8,14 @@
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  background-color: #016f32;
+  /* background-color: #016f32; */
   background-size: cover; /* para que cubra toda la pantalla */
   color: white;
   font-weight: bold;
   margin: 0 auto;
+  touch-action: manipulation;
+  overflow-y: auto;
+  min-height: 100vh;
 }
 
 /* main menu section */
@@ -23,12 +26,79 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-image: url("/javaScript/level_2_update/img/blackjack\ background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto;
 }
 
 #main-menu.deactive {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
+  display: none;
+}
+
+#main-logo {
+  width: 500px;
+  height: 350px;
+}
+
+#welcome-msg {
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+  color: #ffffff;
+
+  text-shadow: 0 0 4px rgb(0, 0, 0);
+  background: linear-gradient(45deg, #9ed89ad8, #509d658a);
+  box-shadow: rgba(0, 0, 0, 0.178) 0 0 20px;
+}
+
+/* main btn */
+
+#start-game {
+  display: inline-block;
+  outline: none;
+  font-family: inherit;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0.3em;
+  height: 3.5em;
+  width: 12em;
+  line-height: 2em;
+  text-transform: uppercase;
+  padding: auto 1em;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4),
+    inset 0 -2px 5px 1px rgba(139, 66, 8, 1),
+    inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+  background-image: linear-gradient(
+    160deg,
+    #a54e07,
+    #b47e11,
+    #fef1a2,
+    #bc881b,
+    #a54e07
+  );
+  border: 1px solid #a55d07;
+  color: rgb(120, 50, 5);
+  text-shadow: 0 2px 2px rgba(250, 227, 133, 1);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+#start-game:focus,
+#start-game:hover {
+  background-size: 150% 150%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23),
+    inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+  border: 1px solid rgba(165, 93, 7, 0.6);
+  color: rgba(120, 50, 5, 0.8);
+}
+
+#start-game:active {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4),
+    inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
 }
 
 /* name input */
@@ -37,47 +107,28 @@ body {
   opacity: 0;
   visibility: hidden;
   outline: none;
-  background-color: transparent;
+  border-radius: 10px;
+  outline: 2px solid #ebb134;
+  border: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #cde9c5;
+  outline-offset: 3px;
+  padding: 10px 1rem;
+  transition: 0.5s;
+  margin: 1em;
   text-align: center;
-  justify-content: center;
-  margin: 10px;
-  border-radius: 0.5em;
-  padding: 0.7em;
-  font-size: 1rem;
-  text-transform: capitalize;
-  transition: 1s ease, outline 1s ease;
 }
 
 #player-input.active {
   opacity: 1;
   visibility: visible;
-  transition: 1s ease, outline 1s ease;
-}
-
-#player-input:hover {
-  transition: linear 1.25s;
-  outline: 1px solid white;
-}
-
-#player-input:focus {
-  background-color: var(--input-color);
-  border: none;
-  outline: 1px solid white;
-  transition: 1s ease;
 }
 
 #player-input::placeholder {
-  color: white;
+  color: #7c7c81;
   font-weight: bold;
-}
-
-#player-input:focus::placeholder {
-  color: var(--input-color);
-}
-
-/* para que el color del input sea el mismo que el color de fondo */
-#player-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px var(--input-color) inset !important;
+  text-align: center;
 }
 
 /* alerta 1 oculta */
@@ -87,10 +138,10 @@ body {
   visibility: hidden;
   position: absolute;
   font-size: 1rem;
-  color: red;
-  text-shadow: 0 0 2px black;
+  color: rgb(231, 21, 21);
+  text-shadow: 0 0 3px #ffffff;
   margin: 0.25em;
-  transition: opacity 0.5s ease, visibility 0.5s ease; /* transición de 0.5s cunaod se oclta */
+  transition: 1s; /* transición de 0.5s cunaod se oclta */
 }
 
 /* alerta 1 mostrada */
@@ -98,56 +149,85 @@ body {
   opacity: 1;
   visibility: visible;
   position: relative;
-  transition: opacity 0.5s ease, visibility 0.5s ease; /* transición de 0.5s cunaod se muestre */
+  transition: 1s; /* transición de 0.5s cunaod se muestre */
 }
 
 /* game section */
 
-.game-container {
-  display: flex;
+#game-container {
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* border: 2px solid black; */
-  border-radius: 10px;
-  padding: 10px;
+  background-image: url("/javaScript/level_2_update/img/blackjack\ background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: auto;
+  height: 100vh;
+}
+
+#game-container.active {
+  display: flex;
+}
+
+#game-logo {
+  width: 250px;
+  height: 200px;
 }
 
 #table-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: start;
-  width: 425px;
-  height: 220px;
+  align-items: space-evenly;
+  width: 450px;
+  height: 250px;
+  border: 15px solid black;
+  border-radius: 50px;
+  background-image: url("/javaScript/level_2_update/img/background\ green.jpg");
+  margin-top: 10px;
+}
+
+#bet-el {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0.5em auto;
+  width: 140px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  background-image: url("/javaScript/level_2_update/img/background\ green.jpg");
   border: 5px solid black;
-  border-radius: 20px;
+  border-radius: 8px;
+  color: white;
+  text-shadow: 0 0 2px black;
 }
 
 #player-card,
-#dealer-card {
+#stay-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 20px;
+  justify-content: space-evenly;
+  align-items: start;
   width: 150px;
   text-transform: capitalize;
+  text-shadow: 0 0 2px black;
+  margin: 0 15px;
   /* border: 2px solid white; */
 }
 
-.title {
-  text-align: center;
-  margin: 0 0 20px 0;
+.title > h2 {
+  display: flex;
+  justify-content: start;
 }
 
 #cards-el,
 #dealer-cards {
   height: 50px;
 }
-/* #cards-el,
-#sum-el,
-#dealer-cards,
-#dealer-sum {} */
 
 /* alerta 2 oculta */
 
@@ -157,17 +237,19 @@ body {
   position: relative;
   font-size: 1rem;
   color: red;
-  text-shadow: 0 0 2px black;
+  text-shadow: 0 0 1px black;
   text-transform: capitalize;
   margin: 0.25em;
-  transition: opacity 0.5s ease, visibility 0.5s ease; /* transición de 0.5s cunaod se oclta */
+  transition: 1s; /* transición de 0.5s cunaod se oclta */
+  background-blend-mode: overlay;
+  background: linear-gradient(0deg, #fefaf718, #adc48877);
 }
 
 /* alerta 2 mostrada */
 #alert-msg.active {
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.5s ease, visibility 0.5s ease; /* transición de 0.5s cunaod se muestre */
+  transition: 1s; /* transición de 0.5s cunaod se muestre */
 }
 
 h1 {
@@ -175,69 +257,217 @@ h1 {
   margin: 0.25em;
 }
 
+/* Button */
+
 button {
-  text-align: center;
-  line-height: 1rem;
-  color: #016f32;
-  width: 150px;
-  background-color: goldenrod;
-  border-radius: 5px;
-  font-weight: bold;
+  width: 140px;
+  height: 40px;
   border: none;
-  padding: 1.1em 0.5em 1em 0.5em;
-  margin: 8px;
-  text-transform: uppercase;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    #77530a,
+    #ffd277,
+    #77530a,
+    #77530a,
+    #ffd277,
+    #77530a
+  );
+  background-size: 250%;
+  background-position: left;
+  color: black;
+  position: relative;
+  display: flex;
+  font-weight: 800;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 1s;
+  overflow: hidden;
+  gap: 6px;
+  padding-top: 0.2em;
 }
 
 button:hover {
-  background-color: #f0c14b;
+  background-position: right;
+  transition-duration: 1s;
+}
+
+button:hover::before {
+  background-position: right;
+  transition-duration: 1s;
 }
 
 button:active {
-  scale: 1.1;
+  transform: scale(0.95);
 }
 
 #message-el {
   font-style: italic;
-  margin: 8px;
+  font-size: 1.5rem;
+  text-shadow: 0 0 2px rgb(0, 0, 0), 0 0 10px rgba(0, 0, 0, 0.5);
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.055);
+  margin: 5px;
 }
 
-#player-el {
+#bet-el {
+  font-size: 1.2rem;
   text-align: center;
-  margin: 10px;
+  margin: 0.5em auto;
+  width: 140px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-transform: capitalize;
+  background-image: url("/javaScript/level_2_update/img/background\ green.jpg");
+  border: 5px solid black;
+  border-radius: 8px;
+  color: white;
+  text-shadow: 0 0 2px black;
 }
 
-.main-btns {
+#main-btns {
+  font-size: 0.95rem;
+  width: 440px;
   display: grid;
-  grid-template: 3fr / 2fr auto;
-  grid-auto-rows: auto-fill;
+  grid-column: auto auto auto;
+  grid-row: 45px 45px;
+  grid-template-areas:
+    "start-play new-card stay"
+    "bet-btn chipd-btn new-game";
+  align-items: center;
+  justify-content: center;
   gap: 10px;
+}
 
-  margin: 10px;
+#player-el > h3,
+h4 {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0.8em auto;
+  text-transform: capitalize;
+  color: white;
+  text-shadow: 0 0 2px black;
 }
 
 #add-one,
 #add-eleven {
   width: 50px;
-}
-
-@media (max-width: 530px) {
-  .main-btns {
-    display: grid;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
 
 @media (max-width: 450px) {
-  #table-container {
-    width: 340px;
+  #main-logo {
+    width: 300px;
     height: 200px;
   }
 
+  #game-logo {
+    width: 150px;
+    height: 100px;
+  }
+
+  #game-container {
+    height: 100vh;
+  }
+
+  #table-container {
+    width: 270px;
+    height: 170px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: start;
+    border-radius: 40px;
+    border: 10px solid black;
+    background-color: red;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  #main-btns {
+    font-size: 0.7rem;
+    width: 240px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 35px 35px 35px;
+    grid-template-areas:
+      "start-play new-card"
+      "stay bet-btn"
+      "chipd-btn new-game";
+    grid-auto-rows: auto-fill;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 1em;
+  }
+
+  button,
+  #quit-btn {
+    width: 110px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    height: 30px;
+  }
+
+  #quit-btn {
+    margin: 10px;
+  }
+
+  #message-el {
+    font-size: 1.2rem;
+    text-shadow: 0 0 2px rgb(0, 0, 0), 0 0 10px rgba(0, 0, 0, 0.5);
+    background-blend-mode: overlay;
+    background: linear-gradient(0deg, #fefaf71a, #a9aa5867);
+  }
+
+  #alert-msg {
+    font-size: 0.8rem;
+  }
+
+  #bet-el {
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0.3em auto;
+    width: 10em;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    background-image: url("/javaScript/level_2_update/img/background\ green.jpg");
+    border: 5px solid black;
+    border-radius: 8px;
+    color: white;
+    text-shadow: 0 0 2px black;
+  }
+
+  #player-el {
+    font-size: 0.95rem;
+  }
+
+  #start-game {
+    width: 9em;
+    height: 3.5em;
+    font-size: 0.8rem;
+    padding: 0 0.1rem;
+  }
+
+  #welcome-msg {
+    font-size: 1.1rem;
+    background: linear-gradient(4deg, #9ed89aaf, #5f292c49);
+    box-shadow: none;
+  }
+
   #player-card,
-  #dealer-card {
+  #stay-card {
     width: 120px;
   }
 }

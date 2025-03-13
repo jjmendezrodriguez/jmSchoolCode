@@ -4,20 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- para link tu css con tu HTML -->
-    <link rel="stylesheet" href="level2.css">
+    <meta name="description" content="Blackjack Game">
     <title>Blackjack</title>
+    <link rel="icon" type="image/x-icon" href="/javaScript/level_2_update/img/favicon/favicon.ico">
+    <link rel="icon" type="image/png" href="/javaScript/level_2_update/img/favicon/favicon.svg">
+    <link rel="manifest" href="/javaScript/level_2_update/img/favicon/site.webmanifest">
+    <link rel="stylesheet" href="level2.css">
 </head>
 <body>
     <section id="main-menu">
-            <h1>The Blackjack Game</h1>
+        <header id="main-logo-container">
+            <img id="main-logo" decoding="auto" src="/javaScript/level_2_update/img/game name lx.png" alt="game title logo">
+        </header>
             <p id="welcome-msg">Want to play a round?</p>
             <p id="alert-one">Please Enter Your Name!</p>
-            <input type="text" id="player-input" placeholder="Enter your Name">
-            <button id="start-game" type="button" >START GAME</button>
+            <input type="text" placeholder="Enter your Name" name="text" id="player-input">
+            <button role="button" id="start-game" type="button">
+                <span class="golden-text" >START GAME</span>
+            </button>
     </section>
-
-        <div class="game-container">
-            <h1>Blackjack</h1>
+        <section id="game-container">
+            <header id="logo-container">
+                <img id="game-logo" src="/javaScript/level_2_update/img/game name lx.png" alt="game title logo">
+            </header>
                 <p id="message-el">Want to play a round?</p>
             <div id="table-container">
                 <!-- Player -->
@@ -27,34 +36,36 @@
                     <p id="sum-el">Sum:</p>
                 </div>
                 <!-- Dealer -->
-                <div id="dealer-card">
+                <div id="stay-card">
                     <h2 class="title">dealer</h2>
                     <p id="dealer-cards">Cards:</p>
                     <p id="dealer-sum">Sum:</p>
                 </div>
             </div>
-                <p id="bet-el">Bet: $</p>
+                <p id="bet-el">Bet: $0</p>
                 <p id="alert-msg">Alert msg</p>
-            <div class="main-btns">
+            <div>
                 <dialog id="set-card">
                     <button id="add-one" type="button">1</button>
                     <button id="add-eleven" type="button">11</button>
                 </dialog>
-                <button id="start-play">PLAY</button>
-                <button id="new-card">NEW CARD</button>
-                <button id="dealer">STAY</button>
-                <button id="bet-btn">BET</button>
-                <button id="chips-btn">ADD CHIPS</button>
+            </div>
+            <div id="main-btns">
+                <button id="start-play"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg>PLAY</button>
+                <button id="new-card"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="m608-368 46-166-142-98-46 166 142 98ZM160-207l-33-16q-31-13-42-44.5t3-62.5l72-156v279Zm160 87q-33 0-56.5-24T240-201v-239l107 294q3 7 5 13.5t7 12.5h-39Zm206-5q-31 11-62-3t-42-45L245-662q-11-31 3-61.5t45-41.5l301-110q31-11 61.5 3t41.5 45l178 489q11 31-3 61.5T827-235L526-125Zm-28-75 302-110-179-490-301 110 178 490Zm62-300Z"/></svg>NEW CARD</button>
+                <button id="stay"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M880-759q0-51-35-86t-86-35v-60q75 0 128 53t53 128h-60ZM240-40q-83 0-141.5-58.5T40-240h60q0 58 41 99t99 41v60Zm162 0q-30 0-56-13.5T303-92L48-465l24-23q19-19 45-22t47 12l116 81v-383q0-17 11.5-28.5T320-840q17 0 28.5 11.5T360-800v537L212-367l157 229q5 8 14 13t19 5h278q33 0 56.5-23.5T760-200v-560q0-17 11.5-28.5T800-800q17 0 28.5 11.5T840-760v560q0 66-47 113T680-40H402Zm38-440v-400q0-17 11.5-28.5T480-920q17 0 28.5 11.5T520-880v400h-80Zm160 0v-360q0-17 11.5-28.5T640-880q17 0 28.5 11.5T680-840v360h-80ZM486-300Z"/></svg>STAY</button>
+                <button id="bet-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-83v-40q-35-5-67.5-19T312-256l-28 29q33 26 72.5 42.5T440-163Zm80 0q44-5 83.5-21.5T676-227l-28-29q-28 20-60.5 34T520-203v40Zm-40-117q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm253-4q26-33 42.5-72.5T797-440h-40q-5 35-19 67.5T704-312l29 28Zm-506 0 29-29q-20-28-34-60t-19-67h-40q5 44 21.5 83.5T227-284Zm253-36L360-480l120-160 120 160-120 160ZM163-520h40q5-35 19-67t34-60l-29-29q-26 33-42.5 72.5T163-520Zm594 0h40q-5-44-22-83.5T732-676l-28 28q20 28 34 60.5t19 67.5ZM313-704q28-20 60-34t67-19v-40q-44 5-83.5 21.5T284-733l29 29Zm335 0 28-28q-33-26-72.5-43T520-797v40q35 5 67.5 19t60.5 34Z"/></svg>BET</button>
+                <button id="new-game"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M80-240v-480h80v480H80Zm560 0-57-56 144-144H240v-80h487L584-664l56-56 240 240-240 240Z"/></svg>NEW Game</button>
+                <button id="chips-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M560-440q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM280-320q-33 0-56.5-23.5T200-400v-320q0-33 23.5-56.5T280-800h560q33 0 56.5 23.5T920-720v320q0 33-23.5 56.5T840-320H280Zm80-80h400q0-33 23.5-56.5T840-480v-160q-33 0-56.5-23.5T760-720H360q0 33-23.5 56.5T280-640v160q33 0 56.5 23.5T360-400Zm440 240H120q-33 0-56.5-23.5T40-240v-440h80v440h680v80ZM280-400v-320 320Z"/></svg>ADD money</button>
             </div>
             <div id="player-el">
                 <h3 id="player-name"></h3>
                 <h4 id="player-chips"></h4>
             </div>
-            <div class="main-btns">
-                <button id="new-game">NEW Game</button>
-                <button id="quit-btn">QUIT GAME</button>
+            <div>
+                <button id="quit-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/></svg>QUIT GAME</button>
             </div>
-        </div>
+        </section>
     <script type="module" src="/javaScript/level_2_update/index.js" defer></script>
 </body>
 </html>

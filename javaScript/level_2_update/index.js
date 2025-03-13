@@ -3,7 +3,11 @@ import {
   getRandomCard,
 } from "/javaScript/level_2_update/cardsDeck.js";
 
-import { stayHand } from "/javaScript/level_2_update/dealer.js";
+import {
+  stayHand,
+  dealerEl,
+  dealerSumEl,
+} from "/javaScript/level_2_update/dealer.js";
 
 let cards = []; // creamos un array
 
@@ -19,7 +23,7 @@ let player = {
 
 // Aqui seleccionas el id del HTML
 let messageEl = document.getElementById("message-el");
-let sumEL = document.getElementById("sum-el");
+let playerSum = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
 let betEl = document.getElementById("bet-el");
 
@@ -28,7 +32,7 @@ let betEl = document.getElementById("bet-el");
 const mainMenu = document.getElementById("main-menu");
 let nameInput = document.getElementById("player-input");
 let isStart = true;
-
+const gameContainer = document.getElementById("game-container");
 const startGame = document.getElementById("start-game");
 const alertOne = document.getElementById("alert-one");
 const playerName = document.getElementById("player-name");
@@ -49,7 +53,7 @@ startGame.addEventListener("click", function (e) {
       playerName.textContent = `Name: ${player.name}`;
       playerChips.textContent = `Chips: $${player.chips}`;
       mainMenu.classList.add("deactive");
-      // console.log(player);
+      gameContainer.classList.add("active");
     }
   }
 });
@@ -133,7 +137,7 @@ async function play() {
   let secondCardValue = await getCardValue(secondCard);
 
   sum = firstCardValue + secondCardValue;
-  sumEL.textContent = `Sum: ${sum}`;
+  playerSum.textContent = `Sum: ${sum}`;
 
   renderGame(true);
 
@@ -162,9 +166,9 @@ function addChips() {
   isAlive = true;
 }
 
-// Dealer ==========================================
+// stay ==========================================
 
-document.getElementById("dealer").addEventListener("click", function () {
+document.getElementById("stay").addEventListener("click", function () {
   if (inGame) {
     stayHand();
   } else {
@@ -198,7 +202,7 @@ function bet() {
 
 async function renderGame(isNewRound = false) {
   ShowCards();
-  sumEL.textContent = `Sum: ${sum}`;
+  playerSum.textContent = `Sum: ${sum}`;
 
   if (isNewRound) {
     sumBet += 10;
@@ -225,7 +229,7 @@ async function renderGame(isNewRound = false) {
   messageEl.textContent = message;
 }
 
-export function youWin() {
+function youWin() {
   player.chips += sumBet * 2;
   sumBet = 0;
   playerChips.textContent = `Chips: $${player.chips}`;
@@ -277,5 +281,10 @@ function reset() {
   hasBlasckJack = false;
   cards = [];
   cardsEl.textContent = `Cards: `;
-  sumEL.textContent = `Sum:`;
+  playerSum.textContent = `Sum: `;
+  dealerEl.textContent = `Cards: `;
+  dealerSumEl.textContent = `Sum: `;
+  betEl.textContent = `Bet: $${sumBet}`;
 }
+
+export { youWin, playerSum, betEl, isAlive, showAlert };
