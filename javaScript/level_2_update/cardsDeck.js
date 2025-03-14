@@ -64,6 +64,8 @@ const addEleven = document.getElementById("add-eleven");
 const dialog = document.getElementById("set-card");
 const { isDealer, notDealer } = setIsDealer;
 
+console.log(isDealer + "estoy en deck");
+
 function getCardValue(card) {
   console.log(isDealer);
   if (isDealer) {

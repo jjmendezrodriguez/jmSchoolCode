@@ -38,18 +38,24 @@ startGame.addEventListener("click", function (e) {
     nameInput.classList.add("active");
     this.textContent = "Submit";
     isStart = false;
-  } else {
-    if (nameInput.value.trim() === "") {
-      alertOne.classList.add("active");
-      nameInput.focus();
-    } else {
-      player.name = nameInput.value.trim();
-      playerName.textContent = `Name: ${player.name}`;
-      playerChips.textContent = `Chips: $${player.chips}`;
-      mainMenu.classList.add("deactive");
-      gameContainer.classList.add("active");
-    }
+    return;
   }
+
+  const playerNameValue = nameInput.value.trim();
+  if (playerNameValue === "") {
+    alertOne.classList.add("active");
+    nameInput.focus();
+    return;
+  }
+
+  playerName.textContent = `Name: ${player.name}`;
+  playerChips.textContent = `Chips: $${player.chips}`;
+
+  mainMenu.classList.add("deactive");
+  gameContainer.classList.add("active");
+
+  const playerTitle = document.querySelector(".title");
+  playerTitle.textContent = player.name;
 });
 
 nameInput.addEventListener("input", () => {
@@ -357,28 +363,33 @@ function renderDGame() {
     dealerSumCards += getCardValue(newCard, dealerSumCards);
     showDealerCards();
     renderDGame(); // Llamada recursiva hasta que el dealer tenga igual o más que el jugador
+    console.log("dealer if 1");
   }
 
   if (dealerSumCards > 21) {
     console.log("Dealer Bust! Dealer pierde.");
     youWin();
     betEl.textContent = `Bet: $ `;
+    console.log("dealer if 2");
   } else if (dealerSumCards === playerSum) {
     showAlert("Empate!", false);
     inGame = false;
     betEl.textContent = `Bet: $0`;
     player.chips += 10;
     playerChips.textContent = `Chips: $${player.chips}`;
+    console.log("dealer if e f 1");
   } else if (dealerSumCards > playerSumEl) {
     showAlert("Dealer tiene mejor mano, gano!", false);
     betEl.textContent = `Bet: $0`;
     isAlive = false;
     inGame = false;
     console.log(`${isAlive}`);
+    console.log("dealer if e f 2");
   } else if (dealerSumCards === 21) {
     console.log("Dealer tiene Blackjack!");
     hasBlackJack = true;
     showAlert("Dealer tiene Blackjack, gano!", false);
     betEl.textContent = `Bet: $ `;
+    console.log("dealer if e f 3");
   }
 }

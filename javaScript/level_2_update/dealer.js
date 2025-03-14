@@ -67,30 +67,30 @@ function renderDGame() {
   dealerSumEl.textContent = `Sum: ${dealerSumCards}`;
   const playerSumEl = Number(playerSum.textContent.split(" ")[1]);
 
-  if (dealerSumCards < playerSumEl) {
+  if (dealerSumCards < 21) {
     let newCard = getRandomCard();
     dealerCards.push(newCard);
     dealerSumCards += getCardValue(newCard, dealerSumCards);
     showDealerCards();
     renderDGame(); // Llamada recursiva hasta que el dealer tenga igual o más que el jugador
-  } else {
+  }
+
+  if (dealerSumCards > 21) {
+    console.log("Dealer Bust! Dealer pierde.");
+    youWin();
+    betEl.textContent = `Bet: $ `;
+  } else if (dealerSumCards === playerSum) {
+    showAlert("Empate!", false);
+    inGame = false;
+    betEl.textContent = `Bet: $0`;
+    player.chips += 10;
+    playerChips.textContent = `Chips: $${player.chips}`;
+  } else if (dealerSumCards > playerSumEl) {
     showAlert("Dealer tiene mejor mano, gano!", false);
     betEl.textContent = `Bet: $0`;
     isAlive = false;
     inGame = false;
     console.log(`${isAlive}`);
-  }
-
-  if (dealerSumCards === playerSum) {
-    showAlert("Empate!", false);
-    inGame = false;
-  }
-
-  // Verificar estado final del dealer
-  if (dealerSumCards > 21) {
-    console.log("Dealer Bust! Dealer pierde.");
-    youWin();
-    betEl.textContent = `Bet: $ `;
   } else if (dealerSumCards === 21) {
     console.log("Dealer tiene Blackjack!");
     hasBlackJack = true;
