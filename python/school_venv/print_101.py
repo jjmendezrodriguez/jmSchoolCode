@@ -2,6 +2,8 @@
 
 # print() function is used to print the specified message to the screen or other standard output device.
 
+hola = "Hola, Mundo!"
+
 print("Hello, World!")  # Hello, World! will be printed
 print(42)  # 42 will be printed is an integer
 print(3.14)  # 3.14 will be printed is a float

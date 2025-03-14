@@ -62,11 +62,12 @@ const cardsDeck = [
 const addOne = document.getElementById("add-one");
 const addEleven = document.getElementById("add-eleven");
 const dialog = document.getElementById("set-card");
-const { isDealer, notDealer } = setIsDealer;
 
-console.log(isDealer + "estoy en deck");
+console.log("estoy en deck");
 
 function getCardValue(card) {
+  const { isDealer, notDealer } = setIsDealer;
+
   console.log(isDealer);
   if (isDealer) {
     if (card.value === "A") {
