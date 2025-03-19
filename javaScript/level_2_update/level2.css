@@ -426,6 +426,7 @@ h4 {
     text-shadow: 0 0 2px rgb(0, 0, 0), 0 0 10px rgba(0, 0, 0, 0.5);
     background-blend-mode: overlay;
     background: linear-gradient(0deg, #fefaf71a, #a9aa5867);
+    text-transform: capitalize;
   }
 
   #alert-msg {
