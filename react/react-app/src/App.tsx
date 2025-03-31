@@ -1,4 +1,4 @@
-import { CardBody } from "./components/Card";
+import { Card } from "./components/Card";
 
 function App() {
   return <Card />;

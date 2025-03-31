@@ -409,4 +409,4 @@ function renderDGame() {
   messageEl.textContent = message;
 }
 
-export { setIsDealer, stayHand, dealerSumCards, play };
+export { setIsDealer, stayHand, dealerSumCards };

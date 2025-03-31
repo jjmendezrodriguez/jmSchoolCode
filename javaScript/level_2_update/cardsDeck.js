@@ -1,5 +1,5 @@
 // Random card deck ========================================
-import { setIsDealer, dealerSumCards, play } from "./index.js";
+import { setIsDealer, dealerSumCards } from "./index.js";
 
 const cardsDeck = [
   { value: "A", suit: "♠️" },
