@@ -1,0 +1,16 @@
+{
+  "name": "practise",
+  "version": "1.0.0",
+  "description": "make for test apis",
+  "license": "ISC",
+  "author": "Jose",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
