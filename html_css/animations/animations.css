@@ -1,5 +1,5 @@
 .exercise-1 {
-  color: darkblue;
+  color: green;
   font-size: 15px;
   transition: color 1s, font-sizes 2s; /* transition property make the change smooth */
   /* How work ^ First value is the 'property' to change, second value is the duration of the transition.
