@@ -28,6 +28,7 @@ syntax app:
 */
 app.get("/", (req, res) => {
   res.send("Hello World!"); // iqual response.send("Hello World!") sens is a method of the response object
+  res.status(200).send("Hello World!"); // 200 is the status code for OK
 });
 
 /* use app.listen, listen is a method (function that lives on the app object)
